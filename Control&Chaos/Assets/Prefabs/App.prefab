@@ -58,5 +58,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47bc3fe7b5424df4eae5c14575b21648, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelPrefabs: []
+  levelPrefabs:
+  - {fileID: 485814846153520585, guid: ddd3b0f0b23194c4da2411646d62a799, type: 3}
   uiController: {fileID: 0}

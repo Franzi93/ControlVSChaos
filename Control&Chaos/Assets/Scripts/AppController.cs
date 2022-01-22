@@ -66,20 +66,14 @@ public class AppController : MonoBehaviour
             base.OnEnter();
             owner.uiController.OpenMainMenu();
         }
-
-        public void StartGame()
-        {
-            owner.fsm.SetState(owner.inGameState);
-            
-        }
-
+        
     }
 
     private void FinishedGame()
     {
         if (fsm.IsInState(inGameState))
         {
-            mainMenuState.StartGame();
+            fsm.SetState(mainMenuState);
         }
     }
 
@@ -87,7 +81,7 @@ public class AppController : MonoBehaviour
     {
         if (fsm.IsInState(mainMenuState))
         {
-            mainMenuState.StartGame();
+            fsm.SetState(inGameState);
         }
     }
 
