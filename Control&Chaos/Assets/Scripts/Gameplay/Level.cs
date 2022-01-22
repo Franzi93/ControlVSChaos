@@ -6,7 +6,7 @@ namespace Duality
     public class Level : MonoBehaviour
     {
         [SerializeField] private RenderGrid renderGrid;
-        [SerializeField] private GameGrid gameGrid;
+        private GameGrid gameGrid;
 
         public Vector2Int goalPos;
         public Spawn[] spawns;
@@ -34,6 +34,8 @@ namespace Duality
         public void Setup()
         {
             spawnedObjects = new List<MoveableFigure>();
+
+            gameGrid = CreateGameGrid();
             
             // TODO: Setup renderGrid with actual level content
 
@@ -106,6 +108,11 @@ namespace Duality
         {
             // TODO: Remove figure from list
             // TODO: Check what type the figure was
+        }
+
+        private GameGrid CreateGameGrid()
+        {
+            return new GameGrid(10, 10);
         }
     }
 }
