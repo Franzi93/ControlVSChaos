@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bda7e798df77c2049a4d46ccdae33415, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  renderGrid: {fileID: 5991292264681362867}
   goalPos: {x: 0, y: 0}
   spawns:
   - pos: {x: 0, y: 0}
@@ -111,3 +112,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2414758205144828470, guid: 80b53ccfdd1823d4182ad985a37ecf95, type: 3}
   m_PrefabInstance: {fileID: 8261758242795741062}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5991292264681362867 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2414758205144828469, guid: 80b53ccfdd1823d4182ad985a37ecf95, type: 3}
+  m_PrefabInstance: {fileID: 8261758242795741062}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eab904becb2c4ea4ab5f3d82b3be988b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

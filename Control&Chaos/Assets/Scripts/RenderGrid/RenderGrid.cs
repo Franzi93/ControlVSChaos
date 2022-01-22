@@ -31,7 +31,7 @@ namespace Duality
 
         private bool IsValidCoords(int x, int y)
         {
-            return GetCellIndexInListFromCoords(x, y) <= cells.Count;
+            return GetCellIndexInListFromCoords(x, y) < cells.Count;
         }
 
         private GameObject GetCellFromFoords(int x, int y)
