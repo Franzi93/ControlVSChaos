@@ -83,8 +83,8 @@ namespace Duality
         public void ExecuteCard(Card card)
         {
             card.Execute(GetPlayer(), GetAllEnemysOfType(card.GetEnemyType()));
-            
-            CheckWinLoseConditions()
+
+            CheckWinLoseConditions();
         }
 
         private void CheckWinLoseConditions()
