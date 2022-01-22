@@ -189,17 +189,40 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1678225310 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6785735914140356811, guid: e8c2dd37a77c358409ac61e968aa9dd7, type: 3}
+  m_PrefabInstance: {fileID: 6785735915684101973}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1678225311 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6785735914140356810, guid: e8c2dd37a77c358409ac61e968aa9dd7, type: 3}
   m_PrefabInstance: {fileID: 6785735915684101973}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1678225310}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0dad3d280a4117b4dac6b13e2cf24dcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1678225314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1678225310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6ce772683d3e6b49b87fd5eef9c3f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardRenderer: {fileID: 4714227416275857080}
+  maxCards: 3
+  playerAbilities:
+  - {fileID: 11400000, guid: f4b685f6107b0ca4b982d13d0fa9958c, type: 2}
+  enemyAbilities:
+  - {fileID: 11400000, guid: f4b685f6107b0ca4b982d13d0fa9958c, type: 2}
 --- !u!1 &1706488833
 GameObject:
   m_ObjectHideFlags: 0
@@ -453,6 +476,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4714227415876950830, guid: 99f36659405e6b74c8fc3e47fa31ceb7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4714227416275857081, guid: 99f36659405e6b74c8fc3e47fa31ceb7, type: 3}
+      propertyPath: m_ChildForceExpandWidth
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4714227416727098208, guid: 99f36659405e6b74c8fc3e47fa31ceb7, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -551,6 +582,17 @@ PrefabInstance:
       objectReference: {fileID: 1678225311}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99f36659405e6b74c8fc3e47fa31ceb7, type: 3}
+--- !u!114 &4714227416275857080 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4714227416275857080, guid: 99f36659405e6b74c8fc3e47fa31ceb7, type: 3}
+  m_PrefabInstance: {fileID: 4714227416275857078}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3278e501dbb254442a9de05dc1411cd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6785735915684101973
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -558,6 +600,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1678225312, guid: e8c2dd37a77c358409ac61e968aa9dd7, type: 3}
+      propertyPath: cardSystem
+      value: 
+      objectReference: {fileID: 1678225314}
     - target: {fileID: 1678225312, guid: e8c2dd37a77c358409ac61e968aa9dd7, type: 3}
       propertyPath: uiController
       value: 
