@@ -8,9 +8,9 @@ namespace Duality
     {
         [SerializeField] GameObject[] levelPrefabs;
         [SerializeField] UIController uiController;
+        [SerializeField] CardSystem cardSystem;
 
-        [SerializeField] List<Ability> abilities;
-   
+
 
         private int currentLevelIndex;
         private Level currentLevel;
@@ -40,6 +40,8 @@ namespace Duality
 
             currentLevel = Instantiate(levelPrefabs[currentLevelIndex]).GetComponent<Level>();
             currentLevel.Setup();
+
+            cardSystem.CreateCards();
         }
 
 
