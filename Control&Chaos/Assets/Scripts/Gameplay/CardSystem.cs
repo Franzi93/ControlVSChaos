@@ -19,6 +19,11 @@ namespace Duality
             return abilities[i];
         }
 
+        private void Start()
+        {
+            cardRenderer.onClickCard += PlayCard;
+        }
+
         public void CreateCard()
         {
             //todo enemy types dependent on level
@@ -43,8 +48,9 @@ namespace Duality
 
         public void PlayCard(Card card)
         {
-            //todo
+            //TODO
             RemoveCard(card);
+            ReshuffleHand();
         }
         public void RemoveCard(Card card)
         {
