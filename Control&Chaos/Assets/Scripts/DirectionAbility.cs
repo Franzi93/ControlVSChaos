@@ -11,7 +11,7 @@ namespace Duality
 
         public override void Use(MoveableFigure figure)
         {
-            throw new System.NotImplementedException();
+            figure.MoveTo(direction);
         }
     }
 }

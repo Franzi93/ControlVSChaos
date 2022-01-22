@@ -6,7 +6,8 @@ namespace Duality
     public class Level : MonoBehaviour
     {
         [SerializeField] private RenderGrid renderGrid;
-        
+        [SerializeField] private GameGrid gameGrid;
+
         public Vector2Int goalPos;
         public Spawn[] spawns;
 
@@ -42,10 +43,12 @@ namespace Duality
             {
                 //get grid position
                 Vector3 pos = renderGrid.GetRenderPositionFromCellPosition(spawn.pos.x, spawn.pos.y);
-                MoveableFigure figure = Instantiate(spawn.obj, pos, Quaternion.identity).GetComponent<MoveableFigure>();
+                MoveableFigure figure = Instantiate(spawn.obj, pos, Quaternion.identity, transform).GetComponent<MoveableFigure>();
                 spawnedObjects.Add(figure);
                 figure.enemyType = spawn.enemyType;
                 figure.type = spawn.type;
+                figure.gameGrid = gameGrid;
+                figure.gridCoord = spawn.pos;
             }
             
             //place goal
@@ -77,7 +80,7 @@ namespace Duality
 
         public void ExecuteCard(Card card)
         {
-            
+            card.Execute(GetPlayer(), GetAllEnemysOfType(card.GetEnemyType()));
         }
     }
 }

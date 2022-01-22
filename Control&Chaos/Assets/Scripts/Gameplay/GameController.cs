@@ -42,7 +42,7 @@ namespace Duality
         {
             currentLevelIndex = index;
 
-            currentLevel = Instantiate(levelPrefabs[currentLevelIndex]).GetComponent<Level>();
+            currentLevel = Instantiate(levelPrefabs[currentLevelIndex], levelSpawnTransform.position, Quaternion.identity).GetComponent<Level>();
             currentLevel.Setup();
 
             cardSystem.CreateCards();

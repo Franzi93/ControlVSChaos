@@ -8,5 +8,15 @@ namespace Duality
     {
         public ECharacterType type;
         public EEnemyType enemyType;
+
+        public Vector2Int gridCoord;
+
+        public GameGrid gameGrid;
+        
+        public void MoveTo(EDirection direction)
+        {
+            gameGrid.GetCellInDirection(gridCoord.x, gridCoord.y, direction,1);
+        }
+
     }
 }
