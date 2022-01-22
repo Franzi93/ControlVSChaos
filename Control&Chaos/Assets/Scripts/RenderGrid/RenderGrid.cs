@@ -72,6 +72,33 @@ namespace Duality
             cells.Clear();
         }
 
+        public void FillNewGridInstant(int width, int height)
+        {
+            Clear();
+
+            if (cellPrefabs.Count == 0)
+            {
+                Debug.LogError("No tile prefabs set!");
+                return;
+            }
+            
+            Random rnd = new Random();
+            
+            for (int y = 0; y < this.height; y++)
+            {
+                for (int x = 0; x < width; x++)
+                {
+                    int randomIndex = rnd.Next(cellPrefabs.Count);
+                    Vector2 position = new Vector2(x, y) * cellSize + cellSize / 2.0f;
+                    GameObject cell =  Instantiate(cellPrefabs[randomIndex], transform.position + new Vector3(position.x, 0, position.y), Quaternion.identity, transform);
+                    cells.Add(cell);
+                }   
+            }
+
+            this.width = width;
+            this.height = height;
+        }
+
         public IEnumerator FillNewGrid(int width, int height, bool fromEditor = false)
         {
             if (!fromEditor)
@@ -96,7 +123,7 @@ namespace Duality
                     GameObject cell =  Instantiate(cellPrefabs[randomIndex], transform.position + new Vector3(position.x, 0, position.y), Quaternion.identity, transform);
                     cells.Add(cell);
 
-                    yield return new WaitForSeconds(0.05f);
+                    yield return new WaitForSeconds(0.01f);
                 }   
             }
 
@@ -127,6 +154,11 @@ namespace Duality
             
             Debug.Log("GetRenderPositionFromCellPosition: Invalid Cell Position!");
             return Vector3.zero;
+        }
+
+        public void Setup()
+        {
+            FillNewGridInstant(width, height);
         }
     }
 

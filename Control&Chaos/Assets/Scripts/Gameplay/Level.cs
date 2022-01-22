@@ -34,15 +34,18 @@ namespace Duality
             
             // TODO: Setup renderGrid with actual level content
 
+            renderGrid.Setup();
+
             // render grid here or in game controller?
             foreach (Spawn spawn in spawns)
             {
                 //get grid position
                 Vector3 pos = renderGrid.GetRenderPositionFromCellPosition(spawn.pos.x, spawn.pos.y);
 
-                spawnedObjects.Add(Instantiate(spawn.obj, pos, Quaternion.identity));
+                spawnedObjects.Add(Instantiate(spawn.obj, pos, Quaternion.identity, transform));
                 
             }
+            
             //place goal
         }
     }

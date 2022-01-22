@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6785735914140356853}
   - component: {fileID: 6785735914140356810}
   - component: {fileID: 1678225312}
-  - component: {fileID: 1678225314}
   m_Layer: 0
   m_Name: App
   m_TagString: Untagged
@@ -62,22 +61,4 @@ MonoBehaviour:
   levelPrefabs:
   - {fileID: 485814846153520585, guid: ddd3b0f0b23194c4da2411646d62a799, type: 3}
   uiController: {fileID: 0}
-  cardSystem: {fileID: 1678225314}
---- !u!114 &1678225314
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6785735914140356811}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6ce772683d3e6b49b87fd5eef9c3f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cardRenderer: {fileID: 0}
-  maxCards: 3
-  playerAbilities:
-  - {fileID: 11400000, guid: f4b685f6107b0ca4b982d13d0fa9958c, type: 2}
-  enemyAbilities:
-  - {fileID: 11400000, guid: f4b685f6107b0ca4b982d13d0fa9958c, type: 2}
+  cardSystem: {fileID: 0}
