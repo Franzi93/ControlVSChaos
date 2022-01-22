@@ -43,3 +43,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eab904becb2c4ea4ab5f3d82b3be988b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cellPrefabs:
+  - {fileID: 5428495536972637173, guid: 1187f0259d0456e43914a54232fce34f, type: 3}
+  - {fileID: 5132563105189127608, guid: d6ab466be5785fa4f9f3bbdf48ce4b69, type: 3}
+  - {fileID: 3075452343632743634, guid: a3a344a7457c2cc42b793086e0316a14, type: 3}
+  - {fileID: 2048338344026559576, guid: 72c771cac0cf7af41a954429ac078bab, type: 3}
+  width: 10
+  height: 10
+  cellSize: {x: 4, y: 4}
+  deleteCoord: {x: 0, y: 0}

@@ -29,6 +29,21 @@ namespace Duality
             return  y * width + x;
         }
 
+        private bool IsValidCoords(int x, int y)
+        {
+            return GetCellIndexInListFromCoords(x, y) <= cells.Count;
+        }
+
+        private GameObject GetCellFromFoords(int x, int y)
+        {
+            if (IsValidCoords(x, y))
+            {
+                return cells[GetCellIndexInListFromCoords(x, y)];
+            }
+            
+            return null;
+        }
+
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.G))
@@ -93,6 +108,25 @@ namespace Duality
         public void FillTestGrid()
         {
             StartCoroutine(FillNewGrid(width, height, true));
+        }
+
+        public Vector3 GetRenderPositionFromCellPosition(int cellX, int cellY)
+        {
+            if (IsValidCoords(cellX, cellY))
+            {
+                GameObject cell = GetCellFromFoords(cellX, cellY);
+                if (cell != null)
+                {
+                    RenderCell renderCell = cell.GetComponent<RenderCell>();
+                    if (renderCell)
+                    {
+                        return renderCell.GetCharacterTransform().position;
+                    }
+                }
+            }
+            
+            Debug.Log("GetRenderPositionFromCellPosition: Invalid Cell Position!");
+            return Vector3.zero;
         }
     }
 
