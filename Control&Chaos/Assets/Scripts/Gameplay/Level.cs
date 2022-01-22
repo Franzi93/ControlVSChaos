@@ -35,6 +35,8 @@ namespace Duality
             
             // TODO: Setup renderGrid with actual level content
 
+            renderGrid.Setup();
+
             // render grid here or in game controller?
             foreach (Spawn spawn in spawns)
             {
@@ -45,6 +47,7 @@ namespace Duality
                 figure.enemyType = spawn.enemyType;
                 figure.type = spawn.type;
             }
+            
             //place goal
         }
 

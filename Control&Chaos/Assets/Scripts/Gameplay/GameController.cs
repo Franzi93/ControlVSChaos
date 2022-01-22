@@ -9,6 +9,7 @@ namespace Duality
         [SerializeField] GameObject[] levelPrefabs;
         [SerializeField] UIController uiController;
         [SerializeField] CardSystem cardSystem;
+        [SerializeField] Transform levelSpawnTransform;
 
 
         private int currentLevelIndex;
