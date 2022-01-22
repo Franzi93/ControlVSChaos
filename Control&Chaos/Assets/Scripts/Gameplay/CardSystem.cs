@@ -13,6 +13,8 @@ namespace Duality
         [SerializeField] List<Ability> playerAbilities;
         [SerializeField] List<Ability> enemyAbilities;
 
+        public event System.Action<Card> onPlayedCard;
+
         public Ability GetRandomAbility(List<Ability> abilities)
         {
             int i = Random.Range(0, abilities.Count-1);
@@ -49,6 +51,7 @@ namespace Duality
         public void PlayCard(Card card)
         {
             //TODO
+            
             RemoveCard(card);
             ReshuffleHand();
         }

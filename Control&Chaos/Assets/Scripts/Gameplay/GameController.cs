@@ -11,7 +11,6 @@ namespace Duality
         [SerializeField] CardSystem cardSystem;
 
 
-
         private int currentLevelIndex;
         private Level currentLevel;
 
@@ -21,7 +20,12 @@ namespace Duality
         private void Start()
         {
             DebugController.instance.AddAction("Finish level", FinishedLevel);
+            cardSystem.onPlayedCard += PlayedCard;
+        }
 
+        public void PlayedCard(Card card)
+        {
+           // currentLevel.ExecuteCard(card);
         }
 
 

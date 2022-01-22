@@ -2,22 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyQueue 
+namespace Duality
 {
-    private Queue<Ability> abilities;
-
-    public void EnqueueAbility(Ability ability)
+    public class EnemyQueue
     {
-        abilities.Enqueue(ability);
-    }
+        private Queue<Ability> abilities;
 
-    public Ability DequeueAbility()
-    {
-        return abilities.Dequeue();
-    }
-    public void Reset()
-    {
-        abilities.Clear();
-    }
+        public void EnqueueAbility(Ability ability)
+        {
+            abilities.Enqueue(ability);
+        }
 
+        public Ability DequeueAbility()
+        {
+            return abilities.Dequeue();
+        }
+        public void Reset()
+        {
+            abilities.Clear();
+        }
+
+    }
 }
