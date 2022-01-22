@@ -11,7 +11,6 @@ namespace Duality
         [SerializeField] CardSystem cardSystem;
         [SerializeField] Transform levelSpawnTransform;
 
-
         private int currentLevelIndex;
         private Level currentLevel;
 

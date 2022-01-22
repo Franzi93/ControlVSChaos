@@ -49,7 +49,8 @@ MonoBehaviour:
   spawns:
   - pos: {x: 0, y: 0}
     obj: {fileID: 6515569217798234707, guid: a47955f7b1805dd46ad65b73eaa58d3b, type: 3}
-    type: 0
+    type: 1
+    enemyType: 0
 --- !u!1001 &8261758242795741062
 PrefabInstance:
   m_ObjectHideFlags: 0

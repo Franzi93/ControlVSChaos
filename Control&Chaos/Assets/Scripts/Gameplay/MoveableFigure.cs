@@ -12,8 +12,9 @@ namespace Duality
         public Vector2Int gridCoord;
 
         public GameGrid gameGrid;
+        public RenderGrid renderGrid; 
         
-        public void MoveTo(EDirection direction)
+        public virtual void MoveTo(EDirection direction)
         {
             gameGrid.GetCellInDirection(gridCoord.x, gridCoord.y, direction,1);
         }

@@ -32,6 +32,7 @@ namespace Duality
 
         public void Setup()
         {
+            
             spawnedObjects = new List<MoveableFigure>();
             
             // TODO: Setup renderGrid with actual level content
@@ -45,9 +46,11 @@ namespace Duality
                 Vector3 pos = renderGrid.GetRenderPositionFromCellPosition(spawn.pos.x, spawn.pos.y);
                 MoveableFigure figure = Instantiate(spawn.obj, pos, Quaternion.identity, transform).GetComponent<MoveableFigure>();
                 spawnedObjects.Add(figure);
+
                 figure.enemyType = spawn.enemyType;
                 figure.type = spawn.type;
                 figure.gameGrid = gameGrid;
+                figure.renderGrid = renderGrid;
                 figure.gridCoord = spawn.pos;
             }
             

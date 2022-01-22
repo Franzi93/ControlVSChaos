@@ -35,7 +35,7 @@ namespace Duality
             CardUI cardUI = Instantiate(cardUIPrefab,transform).GetComponent<CardUI>();
             cardUIs.Add(cardUI);
 
-            cardUI.button.onClick.AddListener(()=>onClickCard(card));
+            cardUI.button.onClick.AddListener(() => onClickCard(card));
         }
 
 
