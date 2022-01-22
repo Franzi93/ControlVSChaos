@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class EnemyQueue 
 {
-    private Queue<IAbility> abilities;
+    private Queue<Ability> abilities;
 
-    public void EnqueueAbility(IAbility ability)
+    public void EnqueueAbility(Ability ability)
     {
         abilities.Enqueue(ability);
     }
 
-    public IAbility DequeueAbility()
+    public Ability DequeueAbility()
     {
         return abilities.Dequeue();
     }

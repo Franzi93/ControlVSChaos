@@ -1,16 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Card 
+namespace Duality
 {
-    private IAbility controlAbility;
-    private IAbility chaosAbility;
 
-    public Card(IAbility _controlAbility, IAbility _chaosAbility)
+    public class Card
     {
-        controlAbility = _controlAbility;
-        chaosAbility = _chaosAbility;
-    }
+        private Ability controlAbility;
+        private Ability chaosAbility;
+        private EEnemyType enemyType;
 
+        public Card(Ability _controlAbility, Ability _chaosAbility)
+        {
+            controlAbility = _controlAbility;
+            chaosAbility = _chaosAbility;
+        }
+
+    }
 }

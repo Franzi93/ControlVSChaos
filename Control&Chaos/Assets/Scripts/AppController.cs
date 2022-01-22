@@ -4,168 +4,170 @@ using UnityEngine;
 using Dmdrn.UnityDebug;
 using UnityEngine.SceneManagement;
 using Dmdrn;
-
-public class AppController : MonoBehaviour
+namespace Duality
 {
-    private StateMachine<AppController> fsm;
-    private MainMenuState mainMenuState;
-    private InGameState inGameState;
-
-    public static AppController instance;
-
-    [SerializeField] UIController uiController;
-    [SerializeField] GameController gameController;
-    
-
-    private void CreateFSM()
+    public class AppController : MonoBehaviour
     {
-        fsm = new StateMachine<AppController>(this);
-        mainMenuState = fsm.NewState<MainMenuState>();
-        inGameState = fsm.NewState<InGameState>();
-    }
+        private StateMachine<AppController> fsm;
+        private MainMenuState mainMenuState;
+        private InGameState inGameState;
+
+        public static AppController instance;
+
+        [SerializeField] UIController uiController;
+        [SerializeField] GameController gameController;
 
 
-    private void Awake()
-    {
-
-        CreateFSM();
-
-        fsm.SetState(mainMenuState);
-
-        if (instance != null)
-        { 
-            throw new System.Exception("Too many instances of " + GetType());
-        }
-        instance = this;
-
-
-        gameController.GameFinishedEvent += FinishedGame;
-    }
-
-    #region fsm
-
-
-    public class InGameState : StateMachine<AppController>.State
-    {
-        
-        public override void OnEnter()
+        private void CreateFSM()
         {
-            base.OnEnter();
-
-            Log.Message("Entering game...");
-
-            owner.gameController.StartGame();
+            fsm = new StateMachine<AppController>(this);
+            mainMenuState = fsm.NewState<MainMenuState>();
+            inGameState = fsm.NewState<InGameState>();
         }
-        
-    }
-    public class MainMenuState : StateMachine<AppController>.State
-    {
 
-        public override void OnEnter()
-        {
-            base.OnEnter();
-            owner.uiController.OpenMainMenu();
-        }
-        
-    }
 
-    private void FinishedGame()
-    {
-        if (fsm.IsInState(inGameState))
+        private void Awake()
         {
+
+            CreateFSM();
+
             fsm.SetState(mainMenuState);
-        }
-    }
 
-    public void StartGame()
-    {
-        if (fsm.IsInState(mainMenuState))
+            if (instance != null)
+            {
+                throw new System.Exception("Too many instances of " + GetType());
+            }
+            instance = this;
+
+
+            gameController.GameFinishedEvent += FinishedGame;
+        }
+
+        #region fsm
+
+
+        public class InGameState : StateMachine<AppController>.State
         {
-            fsm.SetState(inGameState);
+
+            public override void OnEnter()
+            {
+                base.OnEnter();
+
+                Log.Message("Entering game...");
+
+                owner.gameController.StartGame();
+            }
+
         }
-    }
+        public class MainMenuState : StateMachine<AppController>.State
+        {
+
+            public override void OnEnter()
+            {
+                base.OnEnter();
+                owner.uiController.OpenMainMenu();
+            }
+
+        }
+
+        private void FinishedGame()
+        {
+            if (fsm.IsInState(inGameState))
+            {
+                fsm.SetState(mainMenuState);
+            }
+        }
+
+        public void StartGame()
+        {
+            if (fsm.IsInState(mainMenuState))
+            {
+                fsm.SetState(inGameState);
+            }
+        }
 
 
-    public void QuitApp()
-    {
-        Application.Quit();
-    }
+        public void QuitApp()
+        {
+            Application.Quit();
+        }
 
 
-    #endregion
-    #region sceneManagement
+        #endregion
+        #region sceneManagement
 
 
-    public AsyncOperation LoadScene(
-        string sceneName,
-        LoadSceneMode loadMode)
-    {
-        return LoadScene(sceneName, null, loadMode);
-    }
+        public AsyncOperation LoadScene(
+            string sceneName,
+            LoadSceneMode loadMode)
+        {
+            return LoadScene(sceneName, null, loadMode);
+        }
 
-    public AsyncOperation LoadScene(
-        string sceneName,
-        System.Action callback = null,
-        LoadSceneMode loadMode = LoadSceneMode.Single)
-    {
-        Log.MessageFormat("Loading Scene: {0}, Mode: {1}", sceneName, loadMode);
+        public AsyncOperation LoadScene(
+            string sceneName,
+            System.Action callback = null,
+            LoadSceneMode loadMode = LoadSceneMode.Single)
+        {
+            Log.MessageFormat("Loading Scene: {0}, Mode: {1}", sceneName, loadMode);
 
-        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName, loadMode);
-        StartCoroutine(LoadSceneCoroutine(sceneName, operation, callback));
+            AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName, loadMode);
+            StartCoroutine(LoadSceneCoroutine(sceneName, operation, callback));
 
-        return operation;
-    }
+            return operation;
+        }
 
 
-    private IEnumerator LoadSceneCoroutine(
-        string sceneName,
-        AsyncOperation operation,
-        System.Action callback)
-    {
+        private IEnumerator LoadSceneCoroutine(
+            string sceneName,
+            AsyncOperation operation,
+            System.Action callback)
+        {
 
-        while (!operation.isDone)
+            while (!operation.isDone)
+            {
+                yield return null;
+            }
+            Log.MessageFormat("Scene {0} loaded", sceneName);
+
+            callback?.Invoke();
+        }
+
+        public AsyncOperation UnloadScene(
+             string sceneName,
+             System.Action callback = null)
+        {
+            Log.MessageFormat("Unloading Scene: {0}", sceneName);
+
+            AsyncOperation operation = SceneManager.UnloadSceneAsync(sceneName);
+            StartCoroutine(UnloadSceneCoroutine(sceneName, operation, callback));
+
+            return operation;
+        }
+
+
+        private IEnumerator UnloadSceneCoroutine(
+            string sceneName,
+            AsyncOperation operation,
+            System.Action callback)
+        {
+
+            while (!operation.isDone)
+            {
+                yield return null;
+            }
+
+            Log.MessageFormat("Scene {0} unloaded", sceneName);
+
+            callback?.Invoke();
+        }
+
+
+        private IEnumerator WaitAFrame(System.Action callback)
         {
             yield return null;
+            callback();
         }
-        Log.MessageFormat("Scene {0} loaded", sceneName);
-
-        callback?.Invoke();
+        #endregion
     }
-
-    public AsyncOperation UnloadScene(
-         string sceneName,
-         System.Action callback = null)
-    {
-        Log.MessageFormat("Unloading Scene: {0}", sceneName);
-
-        AsyncOperation operation = SceneManager.UnloadSceneAsync(sceneName);
-        StartCoroutine(UnloadSceneCoroutine(sceneName, operation, callback));
-
-        return operation;
-    }
-
-
-    private IEnumerator UnloadSceneCoroutine(
-        string sceneName,
-        AsyncOperation operation,
-        System.Action callback)
-    {
-
-        while (!operation.isDone)
-        {
-            yield return null;
-        }
-
-        Log.MessageFormat("Scene {0} unloaded", sceneName);
-
-        callback?.Invoke();
-    }
-    
-
-    private IEnumerator WaitAFrame(System.Action callback)
-    {
-        yield return null;
-        callback();
-    }
-    #endregion
 }
