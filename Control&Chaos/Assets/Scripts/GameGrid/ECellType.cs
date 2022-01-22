@@ -4,6 +4,6 @@
     {
         Normal,
         PlayerSpawn,
-        Exit
+        Goal
     }
 }

@@ -6,12 +6,13 @@ namespace Duality
     public class Level : MonoBehaviour
     {
         [SerializeField] private RenderGrid renderGrid;
-        [SerializeField] private GameGrid gameGrid;
+        private GameGrid gameGrid;
 
         public Vector2Int goalPos;
         public Spawn[] spawns;
 
         private List<MoveableFigure> spawnedObjects;
+        private bool playerReachedGoal;
 
         [System.Serializable]
         public class Spawn
@@ -34,6 +35,8 @@ namespace Duality
         {
             
             spawnedObjects = new List<MoveableFigure>();
+
+            gameGrid = CreateGameGrid();
             
             // TODO: Setup renderGrid with actual level content
 
@@ -69,6 +72,7 @@ namespace Duality
             }
             return figures;
         }
+        
         public MoveableFigure GetPlayer()
         {
             foreach (MoveableFigure obj in spawnedObjects)
@@ -84,6 +88,34 @@ namespace Duality
         public void ExecuteCard(Card card)
         {
             card.Execute(GetPlayer(), GetAllEnemysOfType(card.GetEnemyType()));
+
+            CheckWinLoseConditions();
+        }
+
+        private void CheckWinLoseConditions()
+        {
+            // TODO: Check if player is dead
+            // TODO: Check if player reached goal
+            // TODO: Check if all enemies are dead
+            
+            // LOOSE: Player is dead
+            // WIN: Reached goal or all enemies dead
+        }
+
+        public void PlayerReachedGoal()
+        {
+            playerReachedGoal = true;
+        }
+
+        public void FigureKilled(MoveableFigure figure)
+        {
+            // TODO: Remove figure from list
+            // TODO: Check what type the figure was
+        }
+
+        private GameGrid CreateGameGrid()
+        {
+            return new GameGrid(10, 10);
         }
     }
 }
