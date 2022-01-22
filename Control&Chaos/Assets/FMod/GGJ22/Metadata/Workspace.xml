@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="Workspace" id="{28c307dc-47dd-4705-9a35-13df7d051179}">
+		<property name="builtBanksOutputDirectory">
+			<value>D:/Unity Projects/ControlVSChaos/Control&amp;Chaos/Assets/Audio_Banks</value>
+		</property>
+		<relationship name="masterEventFolder">
+			<destination>{4e942d0a-769b-455b-aa3f-0ba425cdb136}</destination>
+		</relationship>
+		<relationship name="masterTagFolder">
+			<destination>{65f02b60-ad0b-4f58-80c9-466c0df85a5f}</destination>
+		</relationship>
+		<relationship name="masterEffectPresetFolder">
+			<destination>{f41fb26b-caf5-4a5e-8830-c25a5f9cfe22}</destination>
+		</relationship>
+		<relationship name="masterParameterPresetFolder">
+			<destination>{69f10d35-761b-451b-865b-961ffb782ea3}</destination>
+		</relationship>
+		<relationship name="masterBankFolder">
+			<destination>{1b11bf09-ee70-4279-894a-2032544ea9b9}</destination>
+		</relationship>
+		<relationship name="masterSandboxFolder">
+			<destination>{b9b87e9b-3bcd-4e10-8daa-b2de7f4f4227}</destination>
+		</relationship>
+		<relationship name="masterAssetFolder">
+			<destination>{3e09a179-5191-473f-ac26-b2f9078b1ccd}</destination>
+		</relationship>
+		<relationship name="mixer">
+			<destination>{a4f802d5-cc3b-4db1-a81a-3531d7301280}</destination>
+		</relationship>
+		<relationship name="profilerSessionFolder">
+			<destination>{a16fe528-eef1-41c6-b9ab-a2ff51f5d786}</destination>
+		</relationship>
+		<relationship name="platforms">
+			<destination>{d6aa8e87-cf6a-465d-95cf-40d5023d7720}</destination>
+		</relationship>
+	</object>
+</objects>

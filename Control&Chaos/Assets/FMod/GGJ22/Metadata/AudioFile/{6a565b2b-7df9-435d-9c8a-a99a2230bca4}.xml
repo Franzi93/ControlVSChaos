@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{6a565b2b-7df9-435d-9c8a-a99a2230bca4}">
+		<property name="assetPath">
+			<value>522171__magnuswaker__bone-breaker-1.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>96</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.7515833333333333</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{3e09a179-5191-473f-ac26-b2f9078b1ccd}</destination>
+		</relationship>
+	</object>
+</objects>

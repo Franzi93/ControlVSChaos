@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{d050faed-3d29-412d-8969-cc85445d11f5}">
+		<property name="assetPath">
+			<value>Stop.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.44408163265306122</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{3e09a179-5191-473f-ac26-b2f9078b1ccd}</destination>
+		</relationship>
+	</object>
+</objects>
