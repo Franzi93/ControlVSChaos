@@ -9,7 +9,7 @@ namespace Duality
     {
         public EDirection direction;
 
-        public override void Use()
+        public override void Use(MoveableFigure figure)
         {
             throw new System.NotImplementedException();
         }

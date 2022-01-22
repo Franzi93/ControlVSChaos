@@ -562,54 +562,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: RenderGrid
       objectReference: {fileID: 0}
-    - target: {fileID: 2414758205144828468, guid: 80b53ccfdd1823d4182ad985a37ecf95, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2414758205144828469, guid: 80b53ccfdd1823d4182ad985a37ecf95, type: 3}
-      propertyPath: width
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2414758205144828469, guid: 80b53ccfdd1823d4182ad985a37ecf95, type: 3}
-      propertyPath: height
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2414758205144828469, guid: 80b53ccfdd1823d4182ad985a37ecf95, type: 3}
-      propertyPath: cellSize.x
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2414758205144828469, guid: 80b53ccfdd1823d4182ad985a37ecf95, type: 3}
-      propertyPath: cellSize.y
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2414758205144828469, guid: 80b53ccfdd1823d4182ad985a37ecf95, type: 3}
-      propertyPath: cellPrefabs.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2414758205144828469, guid: 80b53ccfdd1823d4182ad985a37ecf95, type: 3}
-      propertyPath: tilePrefabs.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2414758205144828469, guid: 80b53ccfdd1823d4182ad985a37ecf95, type: 3}
-      propertyPath: cellPrefabs.Array.data[0]
-      value: 
-      objectReference: {fileID: 5428495536972637173, guid: 1187f0259d0456e43914a54232fce34f, type: 3}
-    - target: {fileID: 2414758205144828469, guid: 80b53ccfdd1823d4182ad985a37ecf95, type: 3}
-      propertyPath: cellPrefabs.Array.data[1]
-      value: 
-      objectReference: {fileID: 5132563105189127608, guid: d6ab466be5785fa4f9f3bbdf48ce4b69, type: 3}
-    - target: {fileID: 2414758205144828469, guid: 80b53ccfdd1823d4182ad985a37ecf95, type: 3}
-      propertyPath: cellPrefabs.Array.data[2]
-      value: 
-      objectReference: {fileID: 3075452343632743634, guid: a3a344a7457c2cc42b793086e0316a14, type: 3}
-    - target: {fileID: 2414758205144828469, guid: 80b53ccfdd1823d4182ad985a37ecf95, type: 3}
-      propertyPath: cellPrefabs.Array.data[3]
-      value: 
-      objectReference: {fileID: 2048338344026559576, guid: 72c771cac0cf7af41a954429ac078bab, type: 3}
-    - target: {fileID: 2414758205144828469, guid: 80b53ccfdd1823d4182ad985a37ecf95, type: 3}
-      propertyPath: tilePrefabs.Array.data[0]
-      value: 
-      objectReference: {fileID: 2070610393077737934, guid: 52ed2c235483e7f4e9f2f73c620192c5, type: 3}
     - target: {fileID: 2414758205144828470, guid: 80b53ccfdd1823d4182ad985a37ecf95, type: 3}
       propertyPath: m_RootOrder
       value: 4

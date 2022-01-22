@@ -9,7 +9,7 @@ namespace Duality
         [SerializeField] GameObject[] levelPrefabs;
         [SerializeField] UIController uiController;
         [SerializeField] CardSystem cardSystem;
-
+        [SerializeField] Transform levelSpawnTransform;
 
 
         private int currentLevelIndex;
@@ -21,7 +21,12 @@ namespace Duality
         private void Start()
         {
             DebugController.instance.AddAction("Finish level", FinishedLevel);
+            cardSystem.onPlayedCard += PlayedCard;
+        }
 
+        public void PlayedCard(Card card)
+        {
+           // currentLevel.ExecuteCard(card);
         }
 
 
@@ -38,7 +43,7 @@ namespace Duality
             currentLevelIndex = index;
 
 
-            currentLevel = Instantiate(levelPrefabs[currentLevelIndex]).GetComponent<Level>();
+            currentLevel = Instantiate(levelPrefabs[currentLevelIndex], levelSpawnTransform.position, Quaternion.identity).GetComponent<Level>();
             currentLevel.Setup();
 
             cardSystem.CreateCards();
