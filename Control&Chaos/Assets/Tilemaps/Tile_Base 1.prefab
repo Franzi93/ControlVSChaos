@@ -27,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 690270044}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.44, y: 0.647, z: -0.301}
-  m_LocalScale: {x: 0.5, y: 0.2824326, z: 0.5}
+  m_LocalPosition: {x: 0.484, y: 1.0000002, z: 0.464}
+  m_LocalScale: {x: 0.5, y: 0.48866305, z: 0.5}
   m_Children: []
   m_Father: {fileID: 3036412940704386988}
   m_RootOrder: 1
@@ -156,7 +156,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c59b80daa5f0efe40a651a3971159c77, type: 2}
+  - {fileID: 2100000, guid: e9604fe6568c1144db1bd1bb729d0e19, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -201,7 +201,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3036412940704386988}
   m_Layer: 0
-  m_Name: Tile_Base 2
+  m_Name: Tile_Base 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
