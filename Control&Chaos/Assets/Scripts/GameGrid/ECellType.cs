@@ -1,8 +1,8 @@
 ﻿namespace Duality
 {
-    public enum EGameTile
+    public enum ECellType
     {
-        Empty,
+        Normal,
         PlayerSpawn,
         Exit
     }
