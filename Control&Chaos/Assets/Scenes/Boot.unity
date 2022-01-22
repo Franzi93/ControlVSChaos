@@ -200,17 +200,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dad3d280a4117b4dac6b13e2cf24dcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1678225312 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1678225312, guid: e8c2dd37a77c358409ac61e968aa9dd7, type: 3}
-  m_PrefabInstance: {fileID: 6785735915684101973}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47bc3fe7b5424df4eae5c14575b21648, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1706488833
 GameObject:
   m_ObjectHideFlags: 0
@@ -407,10 +396,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2098494284, guid: 99f36659405e6b74c8fc3e47fa31ceb7, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1678225312}
     - target: {fileID: 4714227416727098208, guid: 99f36659405e6b74c8fc3e47fa31ceb7, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -520,6 +505,14 @@ PrefabInstance:
       propertyPath: uiController
       value: 
       objectReference: {fileID: 1844100562}
+    - target: {fileID: 1678225312, guid: e8c2dd37a77c358409ac61e968aa9dd7, type: 3}
+      propertyPath: abilities.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678225312, guid: e8c2dd37a77c358409ac61e968aa9dd7, type: 3}
+      propertyPath: abilities.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: f4b685f6107b0ca4b982d13d0fa9958c, type: 2}
     - target: {fileID: 6785735914140356810, guid: e8c2dd37a77c358409ac61e968aa9dd7, type: 3}
       propertyPath: uiController
       value: 

@@ -10,7 +10,7 @@ namespace Duality
         [SerializeField] UIController uiController;
 
         [SerializeField] List<Ability> abilities;
-
+   
 
         private int currentLevelIndex;
         private Level currentLevel;
