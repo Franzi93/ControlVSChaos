@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 352df929f6f1f2c4380915453ba28d18, type: 3}
   m_Name: DirectionAbility
   m_EditorClassIdentifier: Assembly-CSharp::DirectionAbility
+  playerSprite: {fileID: 21300000, guid: df30d15571ffe254dadbf795b23983fc, type: 3}
+  enemySprite: {fileID: 21300000, guid: 51174fe91770fde419d4a6d8600a86b1, type: 3}
   direction: 0

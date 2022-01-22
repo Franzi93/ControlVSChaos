@@ -5164,13 +5164,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8136032767575392539}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5230,7 +5230,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8136032767575392537}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7319439133764639809}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Pressed
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &5278343341802886713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5243,9 +5255,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e116c467ec30b9648b5a87fd6696b2b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerAbility: {fileID: 0}
-  enemyAbility: {fileID: 0}
-  enemyType: {fileID: 0}
+  playerAbility: {fileID: 3531757964325949464}
+  enemyAbility: {fileID: 9144297623220602945}
+  enemyType: {fileID: 2411384876200235496}
   button: {fileID: 544283840786466464}
 --- !u!95 &7319439133764639809
 Animator:
