@@ -8,9 +8,42 @@ using Dmdrn;
 public class AppController : MonoBehaviour
 {
     private StateMachine<AppController> fsm;
-    private PreloadState preloadState;
     private MainMenuState mainMenuState;
     private InGameState inGameState;
+
+    public static AppController instance;
+
+    [SerializeField] UIController uiController;
+    [SerializeField] GameController gameController;
+    
+
+    private void CreateFSM()
+    {
+        fsm = new StateMachine<AppController>(this);
+        mainMenuState = fsm.NewState<MainMenuState>();
+        inGameState = fsm.NewState<InGameState>();
+    }
+
+
+    private void Awake()
+    {
+
+        CreateFSM();
+
+        fsm.SetState(mainMenuState);
+
+        if (instance != null)
+        { 
+            throw new System.Exception("Too many instances of " + GetType());
+        }
+        instance = this;
+
+
+        gameController.GameFinishedEvent += FinishedGame;
+    }
+
+    #region fsm
+
 
     public class InGameState : StateMachine<AppController>.State
     {
@@ -21,12 +54,7 @@ public class AppController : MonoBehaviour
 
             Log.Message("Entering game...");
 
-            owner.LoadScene("Game",
-                () =>
-                {
-                },
-                LoadSceneMode.Additive
-            );
+            owner.gameController.StartGame();
         }
         
     }
@@ -36,18 +64,42 @@ public class AppController : MonoBehaviour
         public override void OnEnter()
         {
             base.OnEnter();
+            owner.uiController.OpenMainMenu();
         }
 
-    }
-    public class PreloadState : StateMachine<AppController>.State
-    {
-
-        public override void OnEnter()
+        public void StartGame()
         {
-            base.OnEnter();
+            owner.fsm.SetState(owner.inGameState);
+            
         }
 
     }
+
+    private void FinishedGame()
+    {
+        if (fsm.IsInState(inGameState))
+        {
+            mainMenuState.StartGame();
+        }
+    }
+
+    public void StartGame()
+    {
+        if (fsm.IsInState(mainMenuState))
+        {
+            mainMenuState.StartGame();
+        }
+    }
+
+
+    public void QuitApp()
+    {
+        Application.Quit();
+    }
+
+
+    #endregion
+    #region sceneManagement
 
 
     public AsyncOperation LoadScene(
@@ -121,5 +173,5 @@ public class AppController : MonoBehaviour
         yield return null;
         callback();
     }
-
+    #endregion
 }
