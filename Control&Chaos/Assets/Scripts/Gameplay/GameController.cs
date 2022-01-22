@@ -2,58 +2,63 @@ using Dmdrn.UnityDebug;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class GameController : MonoBehaviour
+namespace Duality
 {
-    [SerializeField] GameObject[] levelPrefabs;
-    [SerializeField] UIController uiController;
-
-    private int currentLevelIndex;
-    private Level currentLevel;
-
-    public event System.Action GameFinishedEvent;
-      
-
-    private void Start()
+    public class GameController : MonoBehaviour
     {
-        DebugController.instance.AddAction("Finish level", FinishedLevel);
-          
-    }
+        [SerializeField] GameObject[] levelPrefabs;
+        [SerializeField] UIController uiController;
+
+        [SerializeField] List<Ability> abilities;
 
 
-    public void StartGame()
-    {
-        StartLevel(0);
+        private int currentLevelIndex;
+        private Level currentLevel;
 
-        uiController.OpenInGameMenu();
-    }
+        public event System.Action GameFinishedEvent;
 
 
-    private void StartLevel(int index)
-    {
-        currentLevelIndex = index;
-
-        if (currentLevel)
+        private void Start()
         {
-            Destroy(currentLevel.gameObject);
+            DebugController.instance.AddAction("Finish level", FinishedLevel);
 
         }
 
-        currentLevel = Instantiate(levelPrefabs[currentLevelIndex]).GetComponent<Level>();
-    }
-    
 
-
-    public void FinishedLevel()
-    {
-        if ((levelPrefabs.Length-1) < (currentLevelIndex + 1))
+        public void StartGame()
         {
-            GameFinishedEvent();
-        }
-        else
-        {
-            StartLevel(currentLevelIndex + 1);
-        }
-    }
+            StartLevel(0);
 
+            uiController.OpenInGameMenu();
+        }
+
+
+        private void StartLevel(int index)
+        {
+            currentLevelIndex = index;
+
+            if (currentLevel)
+            {
+                Destroy(currentLevel.gameObject);
+
+            }
+
+            currentLevel = Instantiate(levelPrefabs[currentLevelIndex]).GetComponent<Level>();
+        }
+
+
+
+        public void FinishedLevel()
+        {
+            if ((levelPrefabs.Length - 1) < (currentLevelIndex + 1))
+            {
+                GameFinishedEvent();
+            }
+            else
+            {
+                StartLevel(currentLevelIndex + 1);
+            }
+        }
+
+    }
 }

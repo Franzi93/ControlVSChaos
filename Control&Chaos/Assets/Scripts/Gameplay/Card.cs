@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Card 
 {
-    private IAbility controlAbility;
-    private IAbility chaosAbility;
+    private Ability controlAbility;
+    private Ability chaosAbility;
 
-    public Card(IAbility _controlAbility, IAbility _chaosAbility)
+    public Card(Ability _controlAbility, Ability _chaosAbility)
     {
         controlAbility = _controlAbility;
         chaosAbility = _chaosAbility;
