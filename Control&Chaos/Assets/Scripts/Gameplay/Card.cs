@@ -17,6 +17,12 @@ namespace Duality
             enemyType = _enemyType;
         }
 
+        public EEnemyType GetEnemyType()
+        {
+            return enemyType;
+        }
+
+        //public void Execute(MoveableFigure) { }
 
     }
 }

@@ -10,7 +10,7 @@ namespace Duality
         [System.Serializable]
         public class EnemySymbol
         {
-            public Image image;
+            public Sprite sprite;
             public EEnemyType enemyType;
         }
 
@@ -37,6 +37,9 @@ namespace Duality
 
             cardUI.button.onClick.AddListener(()=>onClickCard(card));
         }
+
+
+
         public void RemoveAllCards()
         {
             for (int i = 0; i< cardUIs.Count;i++)

@@ -6,6 +6,7 @@ namespace Duality
 {
     public class MoveableFigure : MonoBehaviour
     {
-        
+        public ECharacterType type;
+        public EEnemyType enemyType;
     }
 }

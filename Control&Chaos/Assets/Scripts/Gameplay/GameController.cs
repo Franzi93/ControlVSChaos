@@ -25,7 +25,7 @@ namespace Duality
 
         public void PlayedCard(Card card)
         {
-           // currentLevel.ExecuteCard(card);
+            currentLevel.ExecuteCard(card);
         }
 
 
@@ -40,7 +40,6 @@ namespace Duality
         private void StartLevel(int index)
         {
             currentLevelIndex = index;
-
 
             currentLevel = Instantiate(levelPrefabs[currentLevelIndex]).GetComponent<Level>();
             currentLevel.Setup();

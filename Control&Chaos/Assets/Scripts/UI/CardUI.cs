@@ -11,7 +11,6 @@ namespace Duality
         public Image enemyAbility;
         public Image enemyType;
         public Button button;
-
-
+        
     }
 }

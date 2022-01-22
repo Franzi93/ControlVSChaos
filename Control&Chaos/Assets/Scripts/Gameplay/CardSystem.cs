@@ -50,8 +50,8 @@ namespace Duality
 
         public void PlayCard(Card card)
         {
-            //TODO
-            
+            onPlayedCard(card);
+
             RemoveCard(card);
             ReshuffleHand();
         }

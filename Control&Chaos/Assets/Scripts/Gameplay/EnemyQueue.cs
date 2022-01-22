@@ -6,6 +6,7 @@ namespace Duality
 {
     public class EnemyQueue
     {
+
         private Queue<Ability> abilities;
 
         public void EnqueueAbility(Ability ability)

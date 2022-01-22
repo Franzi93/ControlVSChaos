@@ -10,6 +10,8 @@ namespace Duality
     }
     public class Ability : ScriptableObject
     {
+        public Sprite sprite;
+
         public virtual void Use(MoveableFigure figure) { }
     }
 
