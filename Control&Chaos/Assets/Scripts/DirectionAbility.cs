@@ -7,8 +7,7 @@ namespace Duality
     [CreateAssetMenu(fileName = "DirectionAbility", menuName = "ScriptableObjects/DirectionAbility", order = 1)]
     public class DirectionAbility : Ability
     {
-        public enum Direction { LEFT, UP, RIGHT, DOWN }
-        public Direction direction;
+        public EDirection direction;
 
         public override void Use()
         {

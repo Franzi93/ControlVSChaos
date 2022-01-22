@@ -43,8 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bda7e798df77c2049a4d46ccdae33415, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpawn: {x: 0, y: 0}
   goalPos: {x: 0, y: 0}
-  enemySpawns:
+  spawns:
   - pos: {x: 0, y: 0}
-  - pos: {x: 0, y: 0}
+    obj: {fileID: 6515569217798234707, guid: a47955f7b1805dd46ad65b73eaa58d3b, type: 3}
+    type: 0

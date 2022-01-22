@@ -37,19 +37,18 @@ namespace Duality
         {
             currentLevelIndex = index;
 
-            if (currentLevel)
-            {
-                Destroy(currentLevel.gameObject);
-
-            }
 
             currentLevel = Instantiate(levelPrefabs[currentLevelIndex]).GetComponent<Level>();
+            currentLevel.Setup();
         }
 
 
 
         public void FinishedLevel()
         {
+            currentLevel.Cleanup();
+            Destroy(currentLevel.gameObject);
+
             if ((levelPrefabs.Length - 1) < (currentLevelIndex + 1))
             {
                 GameFinishedEvent();
