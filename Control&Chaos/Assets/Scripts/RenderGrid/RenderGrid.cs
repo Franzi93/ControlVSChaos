@@ -17,9 +17,35 @@ namespace Duality
         
         private readonly List<GameObject> cells = new List<GameObject>();
 
-        private void Awake()
+        public Vector2Int deleteCoord;
+
+        private void Start()
         {
             FillTestGrid();
+        }
+
+        private int GetCellIndexInListFromCoords(int x, int y)
+        {
+            return  y * width + x;
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.G))
+            {
+                int x = deleteCoord.x;
+                int y = deleteCoord.y;
+                int calculatedIndex = GetCellIndexInListFromCoords(x, y);
+                if (cells.Count > calculatedIndex)
+                {
+                    GameObject cell = cells[calculatedIndex];
+                    Destroy(cell);
+                }
+                else
+                {
+                    Debug.Log($"Could not delete cell at pos {x}, {y}!");
+                }
+            }
         }
 
         public void Clear()
@@ -31,7 +57,7 @@ namespace Duality
             cells.Clear();
         }
 
-        public void FillNewGrid(int width, int height, bool fromEditor = false)
+        public IEnumerator FillNewGrid(int width, int height, bool fromEditor = false)
         {
             if (!fromEditor)
             {
@@ -41,19 +67,21 @@ namespace Duality
             if (cellPrefabs.Count == 0)
             {
                 Debug.LogError("No tile prefabs set!");
-                return;
+                yield break;
             }
             
             Random rnd = new Random();
             
             for (int y = 0; y < height; y++)
             {
-                for (int x = 0; x < this.width; x++)
+                for (int x = 0; x < width; x++)
                 {
                     int randomIndex = rnd.Next(cellPrefabs.Count);
                     Vector2 position = new Vector2(x, y) * cellSize + cellSize / 2.0f;
                     GameObject cell =  Instantiate(cellPrefabs[randomIndex], transform.position + new Vector3(position.x, 0, position.y), Quaternion.identity, transform);
                     cells.Add(cell);
+
+                    yield return new WaitForSeconds(0.05f);
                 }   
             }
 
@@ -64,7 +92,7 @@ namespace Duality
         [ContextMenu("FillTestGrid")]
         public void FillTestGrid()
         {
-            FillNewGrid(10, 10, true);
+            StartCoroutine(FillNewGrid(width, height, true));
         }
     }
 
