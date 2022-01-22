@@ -1,3 +1,4 @@
+using Dmdrn.UnityDebug;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,8 +14,10 @@ public class GameController : MonoBehaviour
     public event System.Action GameFinishedEvent;
       
 
-    private void Awake()
+    private void Start()
     {
+        DebugController.instance.AddAction("Finish level", FinishedLevel);
+          
     }
 
 
@@ -32,16 +35,18 @@ public class GameController : MonoBehaviour
 
         if (currentLevel)
         {
-            Destroy(currentLevel);
+            Destroy(currentLevel.gameObject);
+
         }
 
         currentLevel = Instantiate(levelPrefabs[currentLevelIndex]).GetComponent<Level>();
     }
+    
 
 
     public void FinishedLevel()
     {
-        if (levelPrefabs.Length - 1 < currentLevelIndex + 1)
+        if ((levelPrefabs.Length-1) < (currentLevelIndex + 1))
         {
             GameFinishedEvent();
         }

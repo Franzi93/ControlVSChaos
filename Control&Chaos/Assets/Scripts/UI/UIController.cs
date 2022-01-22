@@ -23,6 +23,7 @@ public class UIController : MonoBehaviour
     private void OpenMenu(GameObject menu)
     {
         menu.SetActive(true);
+        currentMenu = menu;
     }
 
     public void OpenMainMenu()
