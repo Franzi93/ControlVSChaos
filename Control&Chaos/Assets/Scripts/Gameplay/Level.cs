@@ -1,3 +1,4 @@
+using System;
 using Duality;using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -79,7 +80,22 @@ namespace Duality
 
             Vector3 goalPosWorldPosition = renderGrid.GetRenderPositionFromCellPosition(goalPos.x, goalPos.y);
             Instantiate(goalPrefab, goalPosWorldPosition, Quaternion.identity, transform);
-            
+
+            CheckConsistencyBetweenLogicAndRendering();
+        }
+
+        private void CheckConsistencyBetweenLogicAndRendering()
+        {
+            int gameWidth = gameGrid.Width;
+            int gameHeight = gameGrid.Height;
+
+            int renderWidth = renderGrid.Width;
+            int renderHeight = renderGrid.Height;
+
+            if (gameWidth != renderWidth || gameHeight != renderHeight)
+            {
+                throw new Exception("There is an inconsistency between logic and rendering of map");
+            }
         }
 
         public List<EEnemyType> GetAllRemainEnemyTypes()

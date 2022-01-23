@@ -14,6 +14,9 @@ namespace Duality
         private readonly int width;
         private readonly int height;
 
+        public int Width => width;
+        public int Height => height;
+
         public GameGrid(int width, int height)
         {
             this.width = width;
