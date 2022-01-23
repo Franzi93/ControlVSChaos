@@ -76,10 +76,7 @@ namespace Duality
 
                 figure.SetCurrentCell();
                 figure.onFigureKilled += FigureKilled;
-                if (figure.type == ECharacterType.Player)
-                {
-                    (figure as PlayerFigure).reachedGoal = PlayerReachedGoal;
-                }
+                
             }
 
             Vector3 goalPosWorldPosition = renderGrid.GetRenderPositionFromCellPosition(goalPos.x, goalPos.y);
@@ -151,8 +148,8 @@ namespace Duality
             InputSystem.Lock();
             card.Execute(GetPlayer(), GetAllEnemysOfType(card.GetEnemyType()),()=> 
             {
-                InputSystem.Unlock();
                 CheckWinLoseConditions();
+                InputSystem.Unlock();
             });
 
         }
@@ -161,7 +158,8 @@ namespace Duality
         {
             // LOOSE: Player is dead
             // WIN: Reached goal or all enemies dead
-            if (GetAllRemainEnemyTypes().Count == 0)
+
+            if (GetAllRemainEnemyTypes().Count == 0 || (GetPlayer() as PlayerFigure).reachedGoal)
             {
                 levelWon();
             }
@@ -169,14 +167,7 @@ namespace Duality
             {
                 levelLost();
             }
-
-        }
-
-        public void PlayerReachedGoal()
-        {
-            Debug.Log("PlayerReachedGoal");
-            levelWon();
-            Cleanup();
+            
         }
 
         public void FigureKilled(MoveableFigure figure)
