@@ -71,9 +71,15 @@ namespace Duality
             }
         }
 
-        public void Won() { }
-        public void Lost() { }
+        public void Won()
+        {
+            Debug.Log("Game Won");
+        }
 
+        public void Lost()
+        {
+            Debug.Log("Game Lost");
+        }
 
     }
 }
