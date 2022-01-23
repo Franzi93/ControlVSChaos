@@ -37,10 +37,10 @@ public class InputSystem
 
    public static void Unlock()
    {
-        Log.Message("Unlocked");
+       Log.Message("Unlocked");
        if(locks == 0)
        {
-            Debug.LogWarning("nothing to unlock");
+           Debug.LogWarning("InputSystem: You try to unlock input though its not even locked!");
        }
     
        locks--;
