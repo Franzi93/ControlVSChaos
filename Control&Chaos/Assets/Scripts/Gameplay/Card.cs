@@ -32,15 +32,34 @@ namespace Duality
             return enemyType;
         }
 
-        public void Execute(MoveableFigure player, List<MoveableFigure> enemies)
+        public void Execute(MoveableFigure player, List<MoveableFigure> enemies, System.Action doneCallback)
         {
-            controlAbility.Use(player);
-            foreach (MoveableFigure m in enemies)
-            {
-                chaosAbility.Use(m);
-            }
+            controlAbility.Use(player,()=> {
+                enemiesDone = 0;
+                foreach (MoveableFigure m in enemies)
+                {
+                    chaosAbility.Use(m,()=> {
+                        ++enemiesDone;
+                        if (enemiesDone == enemies.Count)
+                        {
+                            doneCallback?.Invoke();
+                        }
+                        //CheckEnemyDone(enemies.Count, doneCallback);
+                    });
+                }
+            });
 
         }
+
+        private int enemiesDone;
+        public void CheckEnemyDone(int enemyAmount, System.Action doneCallback)
+        {
+            if (enemiesDone == enemyAmount)
+            {
+             doneCallback?.Invoke();
+            }
+        }
+
 
     }
 }

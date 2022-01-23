@@ -146,9 +146,13 @@ namespace Duality
 
         public void ExecuteCard(Card card)
         {
-            card.Execute(GetPlayer(), GetAllEnemysOfType(card.GetEnemyType()));
+            InputSystem.Lock();
+            card.Execute(GetPlayer(), GetAllEnemysOfType(card.GetEnemyType()),()=> 
+            {
+                InputSystem.Unlock();
+                CheckWinLoseConditions();
+            });
 
-            CheckWinLoseConditions();
         }
 
         private void CheckWinLoseConditions()

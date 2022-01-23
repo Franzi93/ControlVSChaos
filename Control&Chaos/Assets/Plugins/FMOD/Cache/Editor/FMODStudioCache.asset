@@ -52,7 +52,7 @@ MonoBehaviour:
   - {fileID: 6751603337738884338}
   StringsBanks:
   - {fileID: 515697744616798538}
-  cacheTime: 637784861507037929
+  cacheTime: 637784858528890163
   cacheVersion: 10
 --- !u!114 &515697744616798538
 MonoBehaviour:
@@ -69,7 +69,7 @@ MonoBehaviour:
   Path: Assets/Audio_Banks/Desktop/Music.strings.bank
   Name: Music.strings
   StudioPath: bank:/Music.strings
-  lastModified: 637784861507017912
+  lastModified: 637784858528850264
   FileSizes:
   - Name: 
     Value: 904
@@ -116,7 +116,7 @@ MonoBehaviour:
   Path: Assets/Audio_Banks/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 637784861507037929
+  lastModified: 637784858528890163
   FileSizes: []
   Exists: 1
 --- !u!114 &6751603337738884338
@@ -134,7 +134,7 @@ MonoBehaviour:
   Path: Assets/Audio_Banks/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 637784861507007902
+  lastModified: 637784858528840295
   FileSizes: []
   Exists: 1
 --- !u!114 &6835251540084637015
