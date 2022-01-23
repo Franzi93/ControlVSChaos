@@ -65,6 +65,8 @@ namespace Duality
             RefillHand(enemyTypes);
         }
 
+      
+
         public void PlayCard(Card card)
         {
             onPlayedCard(card);
@@ -82,7 +84,7 @@ namespace Duality
             cards.Remove(card);
             cardRenderer.SimpleUpdateUI(cards.ToArray());
         }
-        private void RemoveAllCards()
+        public void RemoveAllCards()
         {
             cards.Clear();
             cardRenderer.SimpleUpdateUI(cards.ToArray());

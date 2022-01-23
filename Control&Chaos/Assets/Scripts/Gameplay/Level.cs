@@ -83,7 +83,9 @@ namespace Duality
             }
 
             Vector3 goalPosWorldPosition = renderGrid.GetRenderPositionFromCellPosition(goalPos.x, goalPos.y);
+            gameGrid.GetCell(goalPos.x, goalPos.y).type = ECellType.Goal;
             Instantiate(goalPrefab, goalPosWorldPosition, Quaternion.identity, transform);
+
 
             CheckConsistencyBetweenLogicAndRendering();
         }
@@ -157,27 +159,33 @@ namespace Duality
 
         private void CheckWinLoseConditions()
         {
-            // TODO: Check if player is dead
-            // TODO: Check if player reached goal
-            // TODO: Check if all enemies are dead
-            
             // LOOSE: Player is dead
             // WIN: Reached goal or all enemies dead
+            if (GetAllRemainEnemyTypes().Count == 0)
+            {
+                levelWon();
+            }
+            if (GetPlayer() == null)
+            {
+                levelLost();
+            }
+
         }
 
         public void PlayerReachedGoal()
         {
-            //TODO
             Debug.Log("PlayerReachedGoal");
             levelWon();
+            Cleanup();
         }
 
         public void FigureKilled(MoveableFigure figure)
         {
-            // TODO: Remove figure from list
-            // TODO: Check what type the figure was
+            spawnedObjects.Remove(figure);
+            figure.isAlive = false;
 
             Destroy(figure.gameObject);
+            CheckWinLoseConditions();
         }
 
         private GameGrid CreateGameGrid()

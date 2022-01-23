@@ -10,6 +10,8 @@ namespace Duality
         public ECharacterType type;
         public EEnemyType enemyType;
 
+        public bool isAlive;
+
         public Vector2Int gridCoord;
 
         public GameGrid gameGrid;
@@ -19,6 +21,11 @@ namespace Duality
 
         public event System.Action<MoveableFigure> onFigureKilled;
         public System.Action onDoneAbiliy;
+
+        private void Start()
+        {
+            isAlive = true;
+        }
 
         public virtual void MoveTo(EDirection direction, System.Action doneCallback)
         {

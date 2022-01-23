@@ -38,13 +38,15 @@ namespace Duality
                 enemiesDone = 0;
                 foreach (MoveableFigure m in enemies)
                 {
+                    if (!m.isAlive)
+                    { continue; }
+                    ++enemiesToDO;
                     chaosAbility.Use(m,()=> {
                         ++enemiesDone;
-                        if (enemiesDone == enemies.Count)
+                        if (enemiesDone == enemiesToDO)
                         {
                             doneCallback?.Invoke();
                         }
-                        //CheckEnemyDone(enemies.Count, doneCallback);
                     });
                 }
             });
@@ -52,6 +54,7 @@ namespace Duality
         }
 
         private int enemiesDone;
+        private int enemiesToDO;
         public void CheckEnemyDone(int enemyAmount, System.Action doneCallback)
         {
             if (enemiesDone == enemyAmount)

@@ -58,8 +58,7 @@ namespace Duality
 
         public void FinishedLevel()
         {
-            currentLevel.Cleanup();
-            Destroy(currentLevel.gameObject);
+            Cleanup();
 
             if ((levelPrefabs.Length - 1) < (currentLevelIndex + 1))
             {
@@ -70,15 +69,23 @@ namespace Duality
                 StartLevel(currentLevelIndex + 1);
             }
         }
+        public void Cleanup()
+        {
+            currentLevel.Cleanup();
+            Destroy(currentLevel.gameObject);
+            cardSystem.RemoveAllCards();
+        }
 
         public void Won()
         {
             Debug.Log("Game Won");
+            //FinishedLevel();
         }
 
         public void Lost()
         {
             Debug.Log("Game Lost");
+           // StartGame();
         }
 
     }
