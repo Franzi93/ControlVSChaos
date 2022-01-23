@@ -159,13 +159,16 @@ namespace Duality
             // LOOSE: Player is dead
             // WIN: Reached goal or all enemies dead
 
-            if (GetAllRemainEnemyTypes().Count == 0 || (GetPlayer() as PlayerFigure).reachedGoal)
-            {
-                levelWon();
-            }
-            if (GetPlayer() == null)
+            if (GetPlayer() == null || !GetPlayer().isAlive)
             {
                 levelLost();
+                return;
+            }
+            PlayerFigure player = GetPlayer().GetComponent<PlayerFigure>();
+            if (GetAllRemainEnemyTypes().Count == 0 || player.reachedGoal)
+            {
+                levelWon();
+                return;
             }
             
         }
