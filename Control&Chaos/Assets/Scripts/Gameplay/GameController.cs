@@ -21,6 +21,7 @@ namespace Duality
         {
             DebugController.instance.AddAction("Finish level", FinishedLevel);
             cardSystem.onPlayedCard += PlayedCard;
+            cardSystem.handIsEmpty += ReshuffleHand;
         }
 
         public void PlayedCard(Card card)
@@ -44,7 +45,12 @@ namespace Duality
             currentLevel = Instantiate(levelPrefabs[currentLevelIndex], levelSpawnTransform.position, Quaternion.identity).GetComponent<Level>();
             currentLevel.Setup();
 
-            cardSystem.CreateCards();
+            cardSystem.ReshuffleHand(currentLevel.GetAllRemainEnemyTypes());
+        }
+
+        private void ReshuffleHand()
+        {
+            cardSystem.ReshuffleHand(currentLevel.GetAllRemainEnemyTypes());
         }
 
 

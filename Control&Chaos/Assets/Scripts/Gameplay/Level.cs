@@ -60,11 +60,28 @@ namespace Duality
             //place goal
         }
 
+        public List<EEnemyType> GetAllRemainEnemyTypes()
+        {
+            List<EEnemyType> types = new List<EEnemyType>();
+            foreach (MoveableFigure obj in spawnedObjects)
+            {
+                if (types.Contains(obj.enemyType))
+                {
+                    types.Add(obj.enemyType);
+                }
+            }
+            return types;
+        }
+
         public List<MoveableFigure> GetAllEnemysOfType(EEnemyType type)
         {
             List<MoveableFigure> figures = new List<MoveableFigure>(); 
             foreach (MoveableFigure obj in spawnedObjects)
             {
+                if (obj.type == ECharacterType.Player)
+                {
+                    continue;
+                }
                 if (obj.enemyType.Equals(type))
                 {
                     figures.Add(obj);

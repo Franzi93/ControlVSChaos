@@ -12,13 +12,25 @@ namespace Duality
         
         [SerializeField] List<Ability> playerAbilities;
         [SerializeField] List<Ability> enemyAbilities;
+        
+
 
         public event System.Action<Card> onPlayedCard;
+        public event System.Action handIsEmpty;
 
-        public Ability GetRandomAbility(List<Ability> abilities)
+        private Ability GetRandomAbility(List<Ability> abilities)
         {
             int i = Random.Range(0, abilities.Count);
             return abilities[i];
+        }
+        private EEnemyType GetRandomEnemyType(List<EEnemyType> enemyTypes)
+        {
+            if (enemyTypes.Count == 0)
+            {
+                return EEnemyType.None;
+            }
+            int i = Random.Range(0, enemyTypes.Count);
+            return enemyTypes[i];
         }
 
         private void Start()
@@ -26,27 +38,28 @@ namespace Duality
             cardRenderer.onClickCard += PlayCard;
         }
 
-        public void CreateCard()
+        private void CreateCard(List<EEnemyType> enemyTypes)
         {
+
             //todo enemy types dependent on level
-            Card card = new Card(GetRandomAbility(playerAbilities), GetRandomAbility(enemyAbilities), EEnemyType.King);
+            Card card = new Card(GetRandomAbility(playerAbilities), GetRandomAbility(enemyAbilities), GetRandomEnemyType(enemyTypes));
             cards.Add(card);
 
             cardRenderer.SimpleUpdateUI(cards.ToArray());
  
         }
 
-        public void CreateCards()
+        private void RefillHand(List<EEnemyType> enemyTypes)
         {
-            for (int i = 0; i < maxCards; i++)
+            for (int i = cards.Count; i < maxCards; i++)
             {
-                CreateCard();
+                CreateCard(enemyTypes);
             }
         }
-        public void ReshuffleHand()
+        public void ReshuffleHand(List<EEnemyType> enemyTypes)
         {
             RemoveAllCards();
-            CreateCards();
+            RefillHand(enemyTypes);
         }
 
         public void PlayCard(Card card)
@@ -54,14 +67,19 @@ namespace Duality
             onPlayedCard(card);
 
             RemoveCard(card);
-            ReshuffleHand();
+
+            if (cards.Count == 0)
+            {
+                handIsEmpty();
+            }
+            //ReshuffleHand();
         }
-        public void RemoveCard(Card card)
+        private void RemoveCard(Card card)
         {
             cards.Remove(card);
             cardRenderer.SimpleUpdateUI(cards.ToArray());
         }
-        public void RemoveAllCards()
+        private void RemoveAllCards()
         {
             cards.Clear();
             cardRenderer.SimpleUpdateUI(cards.ToArray());

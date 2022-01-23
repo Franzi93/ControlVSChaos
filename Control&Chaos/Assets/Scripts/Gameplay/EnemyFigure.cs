@@ -8,7 +8,17 @@ namespace Duality
     {
         public override void MoveTo(EDirection direction)
         {
-            gameGrid.GetCellInDirection(gridCoord.x, gridCoord.y, direction, 1);
+            if (MoveToDirection(direction))
+            {
+                GameCell newCell = GetCurrentCell();
+                if (newCell.figure && newCell.figure.type == ECharacterType.Player)
+                {
+                
+                    //Kill player
+                }
+
+            }
+           
         }
     }
 }

@@ -114,21 +114,36 @@ namespace Duality
             return surroundingCells;
         }
 
+        public Vector2Int GetDirVector(EDirection direction)
+        {
+            Vector2Int dirV = Vector2Int.zero;
+            switch (direction)
+            {
+                case EDirection.Down: dirV = Vector2Int.down; break;
+                case EDirection.Up: dirV = Vector2Int.up; break;
+                case EDirection.Right: dirV = Vector2Int.right; break;
+                case EDirection.Left: dirV = Vector2Int.left; break;
+
+            }
+            return dirV;
+        }
+
         public GameCell GetCellInDirection(int x, int y, EDirection direction, int steps)
         {
-            Vector2Int dirV = direction switch
-            {
-                EDirection.Up => Vector2Int.up,
-                EDirection.Down => Vector2Int.down,
-                EDirection.Left => Vector2Int.left,
-                EDirection.Right => Vector2Int.right,
-                _ => Vector2Int.zero
-            };
+            Vector2Int dirV = GetDirVector(direction);
+
 
             return GetCell(new Vector2Int(x, y) + dirV * steps);
         }
 
-        private bool IsValidCellPosition(int x, int y)
+    public Vector2Int GetCoordsInDirection(int x, int y, EDirection direction, int steps)
+    {
+            Vector2Int dirV = GetDirVector(direction);
+
+            return (new Vector2Int(x, y) + dirV* steps);
+        }
+
+public bool IsValidCellPosition(int x, int y)
         {
             return 0 <= x && x < width && 0 <= y && y < height;
         }
