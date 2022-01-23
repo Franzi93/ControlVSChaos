@@ -2069,7 +2069,7 @@ PrefabInstance:
     - target: {fileID: 1678225312, guid: e8c2dd37a77c358409ac61e968aa9dd7, type: 3}
       propertyPath: levelPrefabs.Array.data[0]
       value: 
-      objectReference: {fileID: 1038364236998127189, guid: cf12dcfea1ebe4242a07bdb8e6985c00, type: 3}
+      objectReference: {fileID: 1038364236998127189, guid: c2f972c2043997845a0e3d8db8577b8f, type: 3}
     - target: {fileID: 6785735914140356810, guid: e8c2dd37a77c358409ac61e968aa9dd7, type: 3}
       propertyPath: uiController
       value: 
