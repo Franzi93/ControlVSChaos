@@ -13,13 +13,13 @@ namespace Duality
         public Sprite playerSprite;
         public Sprite enemySprite;
 
-        public virtual void Use(MoveableFigure figure) { }
+        public virtual void Use(MoveableFigure figure, System.Action doneCallback) { }
     }
 
 
     public class AttackAbility : Ability
     {
-        public override void Use(MoveableFigure figure)
+        public override void Use(MoveableFigure figure, System.Action doneCallback)
         {
             throw new System.NotImplementedException();
         }
