@@ -14,6 +14,7 @@ namespace Duality
             public EEnemyType enemyType;
         }
 
+
         public EnemySymbol[] enemySymbols;
 
         public GameObject cardUIPrefab;
@@ -34,11 +35,25 @@ namespace Duality
         {
             CardUI cardUI = Instantiate(cardUIPrefab,transform).GetComponent<CardUI>();
             cardUIs.Add(cardUI);
-
-            cardUI.button.onClick.AddListener(() => onClickCard(card));
+            cardUI.enemyType.sprite = GetSpriteFromArray(card.GetEnemyType());
+            cardUI.enemyAbility.sprite = card.GetChaosAbility().enemySprite;
+            cardUI.playerAbility.sprite = card.GetControlAbility().playerSprite;
+            
+            cardUI.button.onClick.AddListener(()=>onClickCard(card));
         }
 
+        Sprite GetSpriteFromArray(EEnemyType enemyType)
+        {
+            foreach (var symbol in enemySymbols)
+            {
+                if (symbol.enemyType == enemyType)
+                {
+                    return symbol.sprite;
+                }
+            }
 
+            return null;
+        }
 
         public void RemoveAllCards()
         {

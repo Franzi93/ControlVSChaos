@@ -29,10 +29,11 @@ namespace Duality
         public void CreateCard()
         {
             //todo enemy types dependent on level
-            Card card = new Card(GetRandomAbility(playerAbilities), GetRandomAbility(enemyAbilities), EEnemyType.Pawn);
+            Card card = new Card(GetRandomAbility(playerAbilities), GetRandomAbility(enemyAbilities), EEnemyType.King);
             cards.Add(card);
 
             cardRenderer.SimpleUpdateUI(cards.ToArray());
+ 
         }
 
         public void CreateCards()
