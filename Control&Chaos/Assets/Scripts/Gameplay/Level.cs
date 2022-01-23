@@ -103,7 +103,7 @@ namespace Duality
             List<EEnemyType> types = new List<EEnemyType>();
             foreach (MoveableFigure obj in spawnedObjects)
             {
-                if (types.Contains(obj.enemyType))
+                if (!types.Contains(obj.enemyType) && obj.enemyType != EEnemyType.None)
                 {
                     types.Add(obj.enemyType);
                 }
