@@ -10,6 +10,8 @@ namespace Duality
         public CardRenderer cardRenderer;
         public List<Card> cards = new List<Card>();
         public int maxCards;
+
+        public Level currentLevel;
         
         [SerializeField] List<Ability> playerAbilities;
         [SerializeField] List<Ability> enemyAbilities;
@@ -24,8 +26,9 @@ namespace Duality
             int i = Random.Range(0, abilities.Count);
             return abilities[i];
         }
-        private EEnemyType GetRandomEnemyType(List<EEnemyType> enemyTypes)
+        private EEnemyType GetRandomEnemyType()
         {
+            List<EEnemyType> enemyTypes = currentLevel.GetAllRemainEnemyTypes();
             if (enemyTypes.Count == 0)
             {
                 return EEnemyType.None;
@@ -41,28 +44,49 @@ namespace Duality
             
         }
 
-        private void CreateCard(List<EEnemyType> enemyTypes)
+        private void CreateRandomCard()
         {
-
-            //todo enemy types dependent on level
-            Card card = new Card(GetRandomAbility(playerAbilities), GetRandomAbility(enemyAbilities), GetRandomEnemyType(enemyTypes));
+            
+            Card card = new Card(GetRandomAbility(playerAbilities), GetRandomAbility(enemyAbilities), GetRandomEnemyType());
             cards.Add(card);
 
             cardRenderer.SimpleUpdateUI(cards.ToArray());
  
         }
 
-        private void RefillHand(List<EEnemyType> enemyTypes)
+        public void CreateCard(int abilityIndex)
+        {
+            if (abilityIndex > playerAbilities.Count - 1)
+            {
+                Debug.LogWarning("You cannot create more cards than player abilities");
+                return;
+            }
+            Card card = new Card(playerAbilities[abilityIndex], GetRandomAbility(enemyAbilities), GetRandomEnemyType());
+            cards.Add(card);
+
+            cardRenderer.SimpleUpdateUI(cards.ToArray());
+
+        }
+        public void CreateCard(Ability missingAbility)
+        {
+            Card card = new Card(missingAbility, GetRandomAbility(enemyAbilities), GetRandomEnemyType());
+            cards.Add(card);
+
+            cardRenderer.SimpleUpdateUI(cards.ToArray());
+
+        }
+
+        private void RefillHand()
         {
             for (int i = cards.Count; i < maxCards; i++)
             {
-                CreateCard(enemyTypes);
+                CreateCard( i);
             }
         }
-        public void ReshuffleHand(List<EEnemyType> enemyTypes)
+        public void ReshuffleHand()
         {
             RemoveAllCards();
-            RefillHand(enemyTypes);
+            RefillHand();
         }
 
       
@@ -71,13 +95,12 @@ namespace Duality
         {
             onPlayedCard(card);
             StartCoroutine(waitForSeconds(1f,()=>{
-
-
+                
                 RemoveCard(card);
-
+                CreateCard(card.GetControlAbility());
                 if (cards.Count == 0)
                 {
-                    handIsEmpty();
+                  //  handIsEmpty();
                 }
                 //ReshuffleHand();
             }));

@@ -20,6 +20,14 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2410623545205882638, guid: ddd3b0f0b23194c4da2411646d62a799, type: 3}
+      propertyPath: goalPos.x
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2410623545205882638, guid: ddd3b0f0b23194c4da2411646d62a799, type: 3}
+      propertyPath: goalPos.y
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2410623545205882638, guid: ddd3b0f0b23194c4da2411646d62a799, type: 3}
       propertyPath: renderGrid
       value: 
       objectReference: {fileID: 3634205641148223114}
@@ -48,20 +56,36 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2410623545205882638, guid: ddd3b0f0b23194c4da2411646d62a799, type: 3}
-      propertyPath: spawns.Array.data[2].pos.x
-      value: 3
+      propertyPath: spawns.Array.data[0].pos.x
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2410623545205882638, guid: ddd3b0f0b23194c4da2411646d62a799, type: 3}
-      propertyPath: spawns.Array.data[2].pos.y
+      propertyPath: spawns.Array.data[0].pos.y
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2410623545205882638, guid: ddd3b0f0b23194c4da2411646d62a799, type: 3}
+      propertyPath: spawns.Array.data[1].pos.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2410623545205882638, guid: ddd3b0f0b23194c4da2411646d62a799, type: 3}
+      propertyPath: spawns.Array.data[1].pos.y
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2410623545205882638, guid: ddd3b0f0b23194c4da2411646d62a799, type: 3}
+      propertyPath: spawns.Array.data[2].pos.x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2410623545205882638, guid: ddd3b0f0b23194c4da2411646d62a799, type: 3}
+      propertyPath: spawns.Array.data[2].pos.y
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2410623545205882638, guid: ddd3b0f0b23194c4da2411646d62a799, type: 3}
       propertyPath: spawns.Array.data[3].pos.x
-      value: 7
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2410623545205882638, guid: ddd3b0f0b23194c4da2411646d62a799, type: 3}
       propertyPath: spawns.Array.data[3].pos.y
-      value: 7
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2410623545205882638, guid: ddd3b0f0b23194c4da2411646d62a799, type: 3}
       propertyPath: spawns.Array.data[2].enemyType
