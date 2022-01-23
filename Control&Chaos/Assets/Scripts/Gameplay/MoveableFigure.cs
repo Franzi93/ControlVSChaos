@@ -12,8 +12,11 @@ namespace Duality
         public Vector2Int gridCoord;
 
         public GameGrid gameGrid;
-        public RenderGrid renderGrid; 
-        
+        public RenderGrid renderGrid;
+
+        public event System.Action<MoveableFigure> onFigureKilled;
+     
+
         public virtual void MoveTo(EDirection direction)
         {
         }
@@ -37,6 +40,19 @@ namespace Duality
             GameCell cell = gameGrid.GetCell(gridCoord);
             return cell;
 
+        }
+
+        public void SetCurrentCell()
+        {
+            if (!gameGrid.IsValidCellPosition(gridCoord.x, gridCoord.y))
+            {
+                throw new System.Exception("SetCurrentCell not possible, cell not in grid "+gridCoord);
+            }
+            GetCurrentCell().figure = this;
+        }
+        public void KilledFigure(MoveableFigure figure)
+        {
+            onFigureKilled(figure);
         }
     }
 }

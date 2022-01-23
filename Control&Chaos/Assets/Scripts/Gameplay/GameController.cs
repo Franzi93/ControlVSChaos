@@ -43,7 +43,7 @@ namespace Duality
             currentLevelIndex = index;
 
             currentLevel = Instantiate(levelPrefabs[currentLevelIndex], levelSpawnTransform.position, Quaternion.identity).GetComponent<Level>();
-            currentLevel.Setup();
+            currentLevel.Setup(Won,Lost);
 
             cardSystem.ReshuffleHand(currentLevel.GetAllRemainEnemyTypes());
         }
@@ -69,6 +69,10 @@ namespace Duality
                 StartLevel(currentLevelIndex + 1);
             }
         }
+
+        public void Won() { }
+        public void Lost() { }
+
 
     }
 }

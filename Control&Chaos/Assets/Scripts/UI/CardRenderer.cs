@@ -70,7 +70,6 @@ namespace Duality
 
         public void SimpleUpdateUI(Card[] cards)
         {
-            Debug.Log("Redraw Cards");
             RemoveAllCards();
             AddCards(cards);
         }
