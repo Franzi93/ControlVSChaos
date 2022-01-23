@@ -1,3 +1,4 @@
+using Dmdrn.UnityDebug;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -36,6 +37,8 @@ namespace Duality
         private void Start()
         {
             cardRenderer.onClickCard += PlayCard;
+
+            
         }
 
         private void CreateCard(List<EEnemyType> enemyTypes)

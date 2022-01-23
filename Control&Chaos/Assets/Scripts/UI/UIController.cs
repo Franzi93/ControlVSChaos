@@ -1,17 +1,21 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Duality;
 using UnityEngine;
 
 public class UIController : MonoBehaviour
 {
     [SerializeField] GameObject mainMenu;
-    [SerializeField] GameObject endOfGameMenu;
     [SerializeField] GameObject inGameMenu;
+    [SerializeField] GameObject lostMenu;
+    [SerializeField] GameObject nextLevelMenu;
+    [SerializeField] GameObject endOfGameMenu;
 
     private GameObject currentMenu;
 
 
-    public void CloseCurrentMenu()
+    private void CloseCurrentMenu()
     {
         if (currentMenu)
         {
@@ -47,4 +51,28 @@ public class UIController : MonoBehaviour
         OpenMenu(inGameMenu);
     }
 
+    public void OpenMenu(EUIState state)
+    {
+        switch (state)
+        {
+            case EUIState.MainMenu:
+                OpenMenu(mainMenu);
+                break;
+            case EUIState.Lost:
+                OpenMenu(lostMenu);
+                break;
+            case EUIState.NextLevel:
+                OpenMenu(nextLevelMenu);
+                break;
+            case EUIState.InGame:
+                OpenMenu(inGameMenu);
+                break;
+            case EUIState.EndOfGame:
+                OpenMenu(endOfGameMenu);
+                break;
+            default:
+                Debug.LogError("OpenMenu: No menu for given state found!");
+                break;
+        }
+    }
 }

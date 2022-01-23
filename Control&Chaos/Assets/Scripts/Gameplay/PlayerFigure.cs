@@ -11,7 +11,7 @@ namespace Duality
         public override void MoveTo(EDirection direction, System.Action doneCallback)
         {
             GameCell oldCell = GetCurrentCell();
-            onArrivedLocation = doneCallback;
+            onDoneAbiliy = doneCallback;
             if (MoveToDirection(direction))
             {
                 GameCell newCell = GetCurrentCell();
@@ -29,6 +29,20 @@ namespace Duality
                 SetCurrentCell();
             }
          
+        }
+
+        public override void Attack(System.Action doneCallback)
+        {
+            onDoneAbiliy = doneCallback;
+            animator.SetTrigger("Attack");
+            foreach (GameCell cell in gameGrid.GetAllSurroundingCells(gridCoord.x, gridCoord.y))
+            {
+                if (cell.figure && cell.figure.type == ECharacterType.Enemy)
+                {
+                    KilledFigure(cell.figure);
+                }
+            }
+            onDoneAbiliy();
         }
     }
 }
