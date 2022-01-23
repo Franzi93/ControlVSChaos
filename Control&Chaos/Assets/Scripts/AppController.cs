@@ -50,6 +50,11 @@ namespace Duality
 #endif
         }
 
+        public void ExitGameMode()
+        {
+            FinishedGame();
+        }
+
 
         private void Awake()
         {
