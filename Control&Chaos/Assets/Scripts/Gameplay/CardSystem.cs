@@ -56,6 +56,11 @@ namespace Duality
 
         public void CreateCard(int abilityIndex)
         {
+            if (abilityIndex > playerAbilities.Count - 1)
+            {
+                Debug.LogWarning("You cannot create more cards than player abilities");
+                return;
+            }
             Card card = new Card(playerAbilities[abilityIndex], GetRandomAbility(enemyAbilities), GetRandomEnemyType());
             cards.Add(card);
 
