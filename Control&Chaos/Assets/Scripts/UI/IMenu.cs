@@ -4,7 +4,7 @@ namespace Duality
 {
     public abstract class AMenu : MonoBehaviour
     {
-        private bool setupDone = false;
+        protected bool setupDone = false;
 
         protected AppController app;
         protected UIController uiController;

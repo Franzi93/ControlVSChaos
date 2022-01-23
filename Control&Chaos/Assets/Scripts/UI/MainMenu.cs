@@ -9,8 +9,6 @@ namespace Duality
         [SerializeField] private Button exitButton;
         [SerializeField] private Button creditsButton;
 
-        private bool setupDone = false;
-
         public override void SetupButtons()
         {
             if (setupDone)
