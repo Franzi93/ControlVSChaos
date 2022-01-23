@@ -6,10 +6,15 @@ namespace Duality
     public class Level : MonoBehaviour
     {
         [SerializeField] private RenderGrid renderGrid;
+        [SerializeField] private int LevelNumber = 1;
+        [SerializeField] private bool generateRenderGridOnSetup = false;
         private GameGrid gameGrid;
 
+        [Header("Grid Setup Data")]
         public Vector2Int goalPos;
         public Spawn[] spawns;
+        public int width = 20;
+        public int height = 20;
 
         public GameObject goalPrefab;
 
@@ -45,10 +50,11 @@ namespace Duality
             spawnedObjects = new List<MoveableFigure>();
 
             gameGrid = CreateGameGrid();
-            
-            // TODO: Setup renderGrid with actual level content
 
-            renderGrid.Setup();
+            if (generateRenderGridOnSetup)
+            {
+                renderGrid.SetupWithNewSize(width, height);
+            }
 
             // render grid here or in game controller?
             foreach (Spawn spawn in spawns)
@@ -151,7 +157,7 @@ namespace Duality
 
         private GameGrid CreateGameGrid()
         {
-            return new GameGrid(10, 10);
+            return new GameGrid(width, height);
         }
     }
 }
