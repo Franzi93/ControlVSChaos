@@ -179,7 +179,6 @@ namespace Duality
             figure.isAlive = false;
 
             Destroy(figure.gameObject);
-            CheckWinLoseConditions();
         }
 
         private GameGrid CreateGameGrid()
