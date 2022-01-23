@@ -1,18 +1,24 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using Duality;
 using UnityEngine;
 
 public class UIController : MonoBehaviour
 {
-    [SerializeField] GameObject mainMenu;
-    [SerializeField] GameObject inGameMenu;
-    [SerializeField] GameObject winMenu;
-    [SerializeField] GameObject lostMenu;
-    [SerializeField] GameObject endOfGameMenu;
+    [SerializeField] private AMenu mainMenu;
+    [SerializeField] private AMenu inGameMenu;
+    [SerializeField] private AMenu winMenu;
+    [SerializeField] private AMenu lostMenu;
+    [SerializeField] private AMenu endOfGameMenu;
 
     private GameObject currentMenu;
+
+    public void Setup(AppController app)
+    {
+        mainMenu.SetControllers(app,this);
+        inGameMenu.SetControllers(app,this);
+        winMenu.SetControllers(app,this);
+        lostMenu.SetControllers(app,this);
+        endOfGameMenu.SetControllers(app,this);
+    }
 
 
     private void CloseCurrentMenu()
@@ -33,22 +39,24 @@ public class UIController : MonoBehaviour
     public void OpenMainMenu()
     {
         CloseCurrentMenu();
+        
+        mainMenu.SetupButtons();
 
-        OpenMenu(mainMenu);
+        OpenMenu(mainMenu.gameObject);
     }
 
     public void OpenEndOfGameMenu()
     {
         CloseCurrentMenu();
 
-        OpenMenu(endOfGameMenu);
+        OpenMenu(endOfGameMenu.gameObject);
     }
 
     public void OpenInGameMenu()
     {
         CloseCurrentMenu();
 
-        OpenMenu(inGameMenu);
+        OpenMenu(inGameMenu.gameObject);
     }
 
     public void OpenMenu(EUIState state)
@@ -56,19 +64,19 @@ public class UIController : MonoBehaviour
         switch (state)
         {
             case EUIState.MainMenu:
-                OpenMenu(mainMenu);
+                OpenMenu(mainMenu.gameObject);
                 break;
             case EUIState.Lost:
-                OpenMenu(lostMenu);
+                OpenMenu(lostMenu.gameObject);
                 break;
             case EUIState.Win:
-                OpenMenu(winMenu);
+                OpenMenu(winMenu.gameObject);
                 break;
             case EUIState.InGame:
-                OpenMenu(inGameMenu);
+                OpenMenu(inGameMenu.gameObject);
                 break;
             case EUIState.EndOfGame:
-                OpenMenu(endOfGameMenu);
+                OpenMenu(endOfGameMenu.gameObject);
                 break;
             default:
                 Debug.LogError("OpenMenu: No menu for given state found!");

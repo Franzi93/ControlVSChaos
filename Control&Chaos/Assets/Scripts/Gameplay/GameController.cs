@@ -1,3 +1,4 @@
+using System;
 using Dmdrn.UnityDebug;
 using System.Collections;
 using System.Collections.Generic;
@@ -91,5 +92,17 @@ namespace Duality
             uiController.OpenMenu(EUIState.Lost);
         }
 
+        public void NextLevel()
+        {
+            uiController.OpenMenu(EUIState.InGame);
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.O))
+            {
+                Won();
+            }
+        }
     }
 }
