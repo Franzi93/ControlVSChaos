@@ -32,13 +32,14 @@ namespace Duality
             return enemyType;
         }
 
-        public void Execute(MoveableFigure player, List<MoveableFigure> enemies)
+        public void Execute(MoveableFigure player, List<MoveableFigure> enemies, System.Action doneCallback)
         {
             controlAbility.Use(player);
             foreach (MoveableFigure m in enemies)
             {
                 chaosAbility.Use(m);
             }
+            doneCallback?.Invoke();
 
         }
 

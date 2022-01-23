@@ -15,13 +15,13 @@ namespace Duality
         public RenderGrid renderGrid;
 
         public event System.Action<MoveableFigure> onFigureKilled;
-     
+        public System.Action onArrivedLocation;
 
         public virtual void MoveTo(EDirection direction)
         {
         }
 
-        public bool MoveToDirection(EDirection direction)
+        protected bool MoveToDirection(EDirection direction)
         {
             Vector2Int newCell = gameGrid.GetCoordsInDirection(gridCoord.x, gridCoord.y, direction, 1);
             bool moveValid = gameGrid.IsValidCellPosition(newCell.x,newCell.y);
@@ -54,5 +54,11 @@ namespace Duality
         {
             onFigureKilled(figure);
         }
+        public void ArrivedLocation()
+        {
+
+        }
+
+
     }
 }

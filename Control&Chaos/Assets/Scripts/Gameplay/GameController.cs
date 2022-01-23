@@ -28,9 +28,7 @@ namespace Duality
 
         public void PlayedCard(Card card)
         {
-            InputSystem.Lock();
             currentLevel.ExecuteCard(card);
-            InputSystem.Unlock();
         }
 
 
