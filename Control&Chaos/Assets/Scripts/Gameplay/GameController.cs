@@ -63,7 +63,7 @@ namespace Duality
 
         public void Cleanup()
         {
-            InputSystem.Unlock();
+            InputSystem.Free();
 
             currentLevel.Cleanup();
             Destroy(currentLevel.gameObject);

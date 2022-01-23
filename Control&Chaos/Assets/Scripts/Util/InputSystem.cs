@@ -35,6 +35,15 @@ public class InputSystem
         Unlock();
     }
 
+    public static void Free()
+    {
+        for (int i = 0; i < locks; i++)
+        {
+            Unlock();
+        }
+
+    }
+
    public static void Unlock()
    {
        Log.Message("Unlocked");
