@@ -103,6 +103,10 @@ namespace Duality
             {
                 Won();
             }
+            else if (Input.GetKeyDown(KeyCode.P))
+            {
+                Lost();
+            }
         }
     }
 }
