@@ -17,7 +17,7 @@ namespace Duality
         
         private readonly List<GameObject> cells = new List<GameObject>();
 
-        public Vector2Int deleteCoord;
+        private Vector2Int deleteCoord;
 
         private void Start()
         {
@@ -65,11 +65,19 @@ namespace Duality
 
         public void Clear()
         {
-            foreach (GameObject cell in cells)
+            if (Application.isPlaying)
             {
-                Destroy(cell);
+                foreach (GameObject cell in cells)
+                {
+                    Destroy(cell);
+                }
+                cells.Clear();
             }
-            cells.Clear();
+            else if (Application.isEditor)
+            {
+                for (int i = this.transform.childCount; i > 0; --i)
+                    DestroyImmediate(transform.GetChild(0).gameObject);
+            }
         }
 
         public void FillNewGridInstant(int width, int height)
@@ -156,6 +164,16 @@ namespace Duality
             return Vector3.zero;
         }
 
+        public void Setup(GameGrid gameGrid)
+        {
+            FillNewGridInstant(width, height);
+        }
+
+        public void SetupWithNewSize(int width, int height)
+        {
+            FillNewGridInstant(width, height);
+        }
+
         public void Setup()
         {
             FillNewGridInstant(width, height);
@@ -166,13 +184,11 @@ namespace Duality
     [CustomEditor(typeof(RenderGrid))]
     class RenderGridEditor : Editor
     {
-        private SerializedProperty grid;
+        private RenderGrid renderGrid;
 
         private void OnEnable()
         {
-            grid = serializedObject.FindProperty("grid");
-            
-            
+            renderGrid = (RenderGrid) target;
         }
 
         public override void OnInspectorGUI()
@@ -181,13 +197,12 @@ namespace Duality
             
             if (GUILayout.Button("Clear"))
             {
-                
+                renderGrid.Clear();
             }
             
-            if (GUILayout.Button("FillNewGrid 10, 10"))
+            if (GUILayout.Button("FillGrid"))
             {
-                
-                // ((grid.GetType()) grid).FillNewGrid(10, 10);
+                renderGrid.Setup();
             }
         }
     }

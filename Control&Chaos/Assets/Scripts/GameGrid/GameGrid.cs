@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,6 +19,21 @@ namespace Duality
             this.width = width;
             this.height = height;
             cells = new GameCell[width, height];
+        }
+        
+        public GameGrid(int width, int height, int[,] content)
+        {
+            this.width = width;
+            this.height = height;
+            cells = new GameCell[width, height];
+            
+            for (int y = 0; y < height; y++)
+            {
+                for (int x = 0; x < width; x++)
+                {
+                    cells[x, y].type = (ECellType) content[x, y];
+                }
+            }
         }
 
         public void SetCell(int x, int y, GameCell cell)
