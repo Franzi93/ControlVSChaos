@@ -58,9 +58,9 @@ MonoBehaviour:
   TriggerOnce: 0
   Preload: 0
   Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
+  OverrideAttenuation: 1
+  OverrideMinDistance: 10
+  OverrideMaxDistance: 40
 --- !u!1 &4401351349096845128
 GameObject:
   m_ObjectHideFlags: 0
@@ -305,9 +305,9 @@ MonoBehaviour:
   TriggerOnce: 0
   Preload: 0
   Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
+  OverrideAttenuation: 1
+  OverrideMinDistance: 10
+  OverrideMaxDistance: 40
 --- !u!1 &4401351350591655897
 GameObject:
   m_ObjectHideFlags: 0
@@ -498,7 +498,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: ec2df44ea50b2c84a9eb14f4247f94bb, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 8ed4ebe6324d8d4439161aed4b3d0e89, type: 2}
+      objectReference: {fileID: 2100000, guid: 2e857489865c37a4d8709e6aade7db33, type: 2}
     - target: {fileID: 919132149155446097, guid: ec2df44ea50b2c84a9eb14f4247f94bb, type: 3}
       propertyPath: m_Name
       value: Slash_Trail

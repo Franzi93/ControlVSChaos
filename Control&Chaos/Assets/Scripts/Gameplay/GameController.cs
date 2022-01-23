@@ -19,7 +19,8 @@ namespace Duality
 
         private void Start()
         {
-            DebugController.instance.AddAction("Finish level", FinishedLevel);
+            DebugController.instance.AddAction("Won level", Won);
+            DebugController.instance.AddAction("Lost level", Lost);
             DebugController.instance.AddAction("Reshuffel", ReshuffleHand);
             cardSystem.onPlayedCard += PlayedCard;
             cardSystem.handIsEmpty += ReshuffleHand;
@@ -56,29 +57,38 @@ namespace Duality
 
 
 
-        public void FinishedLevel()
+        public void Cleanup()
         {
             currentLevel.Cleanup();
             Destroy(currentLevel.gameObject);
-
-            if ((levelPrefabs.Length - 1) < (currentLevelIndex + 1))
-            {
-                GameFinishedEvent();
-            }
-            else
-            {
-                StartLevel(currentLevelIndex + 1);
-            }
+            cardSystem.RemoveAllCards();
         }
 
         public void Won()
         {
             Debug.Log("Game Won");
+            Cleanup();
+
+            if ((levelPrefabs.Length - 1) < (currentLevelIndex + 1))
+            {
+                uiController.OpenMenu(EUIState.EndOfGame);
+                //GameFinishedEvent();
+            }
+            else
+            {
+                uiController.OpenMenu(EUIState.Win);
+                //StartLevel(currentLevelIndex + 1);
+            }
+            
+            
         }
 
         public void Lost()
         {
             Debug.Log("Game Lost");
+            Cleanup();
+
+            uiController.OpenMenu(EUIState.Lost);
         }
 
     }
