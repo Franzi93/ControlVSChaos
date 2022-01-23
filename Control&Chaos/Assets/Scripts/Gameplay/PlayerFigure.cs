@@ -8,10 +8,10 @@ namespace Duality
     {
         public System.Action reachedGoal;
 
-        public override void MoveTo(EDirection direction)
+        public override void MoveTo(EDirection direction, System.Action doneCallback)
         {
             GameCell oldCell = GetCurrentCell();
-
+            onArrivedLocation = doneCallback;
             if (MoveToDirection(direction))
             {
                 GameCell newCell = GetCurrentCell();

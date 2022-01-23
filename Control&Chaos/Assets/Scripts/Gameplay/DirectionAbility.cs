@@ -9,9 +9,9 @@ namespace Duality
     {
         public EDirection direction;
 
-        public override void Use(MoveableFigure figure)
+        public override void Use(MoveableFigure figure, System.Action doneCallback)
         {
-            figure.MoveTo(direction);
+            figure.MoveTo(direction, doneCallback);
         }
     }
 }
