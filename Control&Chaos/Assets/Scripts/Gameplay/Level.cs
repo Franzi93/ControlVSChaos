@@ -56,6 +56,10 @@ namespace Duality
             {
                 renderGrid.SetupWithNewSize(width, height);
             }
+            else
+            {
+                renderGrid.SetupFromExistingCells(width, height);
+            }
 
             // render grid here or in game controller?
             foreach (Spawn spawn in spawns)

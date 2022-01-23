@@ -14,6 +14,8 @@ namespace Duality
         [SerializeField] private int height;
         [SerializeField] private Vector2 cellSize = new Vector2(2, 2);
         
+        [SerializeField] private List<GameObject> preExistingCells;
+        
         
         public int Width => width;
         public int Height => height;
@@ -180,6 +182,24 @@ namespace Duality
         public void Setup()
         {
             FillNewGridInstant(width, height);
+        }
+
+        public void SetupFromExistingCells(int width, int height)
+        {
+            // Check if the list of existing cells is exactly the size to fill the whole grid
+            int expectedSize = width * height;
+
+            if (expectedSize == preExistingCells.Count)
+            {
+                foreach (GameObject preExistingCell in preExistingCells)
+                {
+                    cells.Add(preExistingCell);
+                }
+            }
+            else
+            {
+                throw new Exception("RenderGrid with pre-existing cells is setup with wrong size!");
+            }
         }
     }
 
