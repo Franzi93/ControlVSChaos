@@ -17,7 +17,7 @@ namespace Duality
 
         public Ability GetRandomAbility(List<Ability> abilities)
         {
-            int i = Random.Range(0, abilities.Count-1);
+            int i = Random.Range(0, abilities.Count);
             return abilities[i];
         }
 

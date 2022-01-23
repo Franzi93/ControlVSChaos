@@ -490,6 +490,7 @@ MonoBehaviour:
   maxCards: 5
   playerAbilities:
   - {fileID: 11400000, guid: f4b685f6107b0ca4b982d13d0fa9958c, type: 2}
+  - {fileID: 11400000, guid: 2ceda1718f3bc6649b21f6aa181bd835, type: 2}
   enemyAbilities:
   - {fileID: 11400000, guid: f4b685f6107b0ca4b982d13d0fa9958c, type: 2}
 --- !u!114 &1844100562 stripped
