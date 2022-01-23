@@ -207,6 +207,8 @@ namespace Duality
     }
 
 
+#if UNITY_EDITOR
+
     [CustomEditor(typeof(RenderGrid))]
     class RenderGridEditor : Editor
     {
@@ -232,4 +234,6 @@ namespace Duality
             }
         }
     }
+
+#endif
 }
