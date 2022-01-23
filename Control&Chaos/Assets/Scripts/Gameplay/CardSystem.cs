@@ -70,15 +70,28 @@ namespace Duality
         public void PlayCard(Card card)
         {
             onPlayedCard(card);
+            StartCoroutine(waitForSeconds(1f,()=>{
 
-            RemoveCard(card);
 
-            if (cards.Count == 0)
-            {
-                handIsEmpty();
-            }
-            //ReshuffleHand();
+                RemoveCard(card);
+
+                if (cards.Count == 0)
+                {
+                    handIsEmpty();
+                }
+                //ReshuffleHand();
+            }));
         }
+
+        IEnumerator waitForSeconds(float seconds, System.Action callback)
+        {
+            InputSystem.Lock();
+            yield return new WaitForSeconds(seconds);
+            callback();
+            InputSystem.Unlock();
+        }
+        
+
         private void RemoveCard(Card card)
         {
             cards.Remove(card);
