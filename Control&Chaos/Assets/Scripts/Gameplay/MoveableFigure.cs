@@ -64,11 +64,11 @@ namespace Duality
             {
                 animator.SetFloat("Horizontal", -1f);
             }
-            else if (newPos.y > transform.position.y)
+            else if (newPos.z > transform.position.z)
             {
                 animator.SetFloat("Vertical", 1f);
             }
-            else if (newPos.y < transform.position.y)
+            else if (newPos.z < transform.position.z)
             {
                 animator.SetFloat("Vertical", -1f);
             }
