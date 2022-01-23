@@ -1400,7 +1400,7 @@ MonoBehaviour:
     Path: event:/SFX_Move
   Event: 
   PlayEvent: 11
-  StopEvent: 12
+  StopEvent: 0
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0

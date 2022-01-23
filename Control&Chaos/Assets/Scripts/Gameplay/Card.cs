@@ -17,6 +17,16 @@ namespace Duality
             enemyType = _enemyType;
         }
 
+        public Ability GetControlAbility()
+        {
+            return controlAbility;
+        }
+
+        public Ability GetChaosAbility()
+        {
+            return chaosAbility;
+        }
+
         public EEnemyType GetEnemyType()
         {
             return enemyType;
