@@ -44,7 +44,7 @@ namespace Duality
 
         public void SetCurrentCell()
         {
-            GetCurrentCell().figure = this;
+         //   GetCurrentCell().figure = this;
         }
         public void KilledFigure(MoveableFigure figure)
         {
