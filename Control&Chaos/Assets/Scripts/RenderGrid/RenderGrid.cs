@@ -13,13 +13,13 @@ namespace Duality
         [SerializeField] private int width;
         [SerializeField] private int height;
         [SerializeField] private Vector2 cellSize = new Vector2(2, 2);
-        
+
         [SerializeField] private List<GameObject> preExistingCells;
-        
-        
+
+
         public int Width => width;
         public int Height => height;
-        
+
         private readonly List<GameObject> cells = new List<GameObject>();
 
         private Vector2Int deleteCoord;
@@ -31,7 +31,7 @@ namespace Duality
 
         private int GetCellIndexInListFromCoords(int x, int y)
         {
-            return  y * width + x;
+            return y * width + x;
         }
 
         private bool IsValidCoords(int x, int y)
@@ -45,7 +45,7 @@ namespace Duality
             {
                 return cells[GetCellIndexInListFromCoords(x, y)];
             }
-            
+
             return null;
         }
 
@@ -76,6 +76,7 @@ namespace Duality
                 {
                     Destroy(cell);
                 }
+
                 cells.Clear();
             }
             else if (Application.isEditor)
@@ -94,18 +95,19 @@ namespace Duality
                 Debug.LogError("No tile prefabs set!");
                 return;
             }
-            
+
             Random rnd = new Random();
-            
+
             for (int y = 0; y < this.height; y++)
             {
                 for (int x = 0; x < width; x++)
                 {
                     int randomIndex = rnd.Next(cellPrefabs.Count);
                     Vector2 position = new Vector2(x, y) * cellSize + cellSize / 2.0f;
-                    GameObject cell =  Instantiate(cellPrefabs[randomIndex], transform.position + new Vector3(position.x, 0, position.y), Quaternion.identity, transform);
+                    GameObject cell = Instantiate(cellPrefabs[randomIndex],
+                        transform.position + new Vector3(position.x, 0, position.y), Quaternion.identity, transform);
                     cells.Add(cell);
-                }   
+                }
             }
 
             this.width = width;
@@ -124,20 +126,21 @@ namespace Duality
                 Debug.LogError("No tile prefabs set!");
                 yield break;
             }
-            
+
             Random rnd = new Random();
-            
+
             for (int y = 0; y < height; y++)
             {
                 for (int x = 0; x < width; x++)
                 {
                     int randomIndex = rnd.Next(cellPrefabs.Count);
                     Vector2 position = new Vector2(x, y) * cellSize + cellSize / 2.0f;
-                    GameObject cell =  Instantiate(cellPrefabs[randomIndex], transform.position + new Vector3(position.x, 0, position.y), Quaternion.identity, transform);
+                    GameObject cell = Instantiate(cellPrefabs[randomIndex],
+                        transform.position + new Vector3(position.x, 0, position.y), Quaternion.identity, transform);
                     cells.Add(cell);
 
                     yield return new WaitForSeconds(0.01f);
-                }   
+                }
             }
 
             this.width = width;
@@ -164,7 +167,7 @@ namespace Duality
                     }
                 }
             }
-            
+
             Debug.Log("GetRenderPositionFromCellPosition: Invalid Cell Position!");
             return Vector3.zero;
         }
@@ -203,7 +206,7 @@ namespace Duality
         }
     }
 
-    
+
     [CustomEditor(typeof(RenderGrid))]
     class RenderGridEditor : Editor
     {
@@ -217,12 +220,12 @@ namespace Duality
         public override void OnInspectorGUI()
         {
             base.OnInspectorGUI();
-            
+
             if (GUILayout.Button("Clear"))
             {
                 renderGrid.Clear();
             }
-            
+
             if (GUILayout.Button("FillGrid"))
             {
                 renderGrid.Setup();
