@@ -41,6 +41,7 @@ namespace Duality
 
                     if (!m.isAlive)
                     { continue; }
+
                     ++enemiesToDO;
                     chaosAbility.Use(m,()=> {
                         ++enemiesDone;

@@ -6,7 +6,7 @@ namespace Duality
 {
     public class PlayerFigure : MoveableFigure
     {
-        public System.Action reachedGoal;
+        public bool reachedGoal;
 
         public override void MoveTo(EDirection direction, System.Action doneCallback)
         {
@@ -23,7 +23,7 @@ namespace Duality
                 }
                 if (newCell.type == ECellType.Goal)
                 {
-                    reachedGoal();
+                    reachedGoal = true;
                 }
                 oldCell.figure = null;
                 SetCurrentCell();

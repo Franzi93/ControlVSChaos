@@ -40,7 +40,7 @@ public class InputSystem
         Log.Message("Unlocked");
        if(locks == 0)
        {
-           throw new System.Exception("InputSystem: You try to unlock input though its not even locked!");
+            Debug.LogWarning("nothing to unlock");
        }
     
        locks--;
