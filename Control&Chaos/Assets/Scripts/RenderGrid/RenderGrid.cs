@@ -15,13 +15,16 @@ namespace Duality
         [SerializeField] private Vector2 cellSize = new Vector2(2, 2);
         
         
+        public int Width => width;
+        public int Height => height;
+        
         private readonly List<GameObject> cells = new List<GameObject>();
 
         private Vector2Int deleteCoord;
 
         private void Start()
         {
-            FillTestGrid();
+            // FillTestGrid();
         }
 
         private int GetCellIndexInListFromCoords(int x, int y)
