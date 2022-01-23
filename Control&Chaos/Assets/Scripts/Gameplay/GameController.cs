@@ -63,6 +63,9 @@ namespace Duality
 
         public void Cleanup()
         {
+            InputSystem.Unlock();
+            
+
             currentLevel.Cleanup();
             Destroy(currentLevel.gameObject);
             cardSystem.RemoveAllCards();

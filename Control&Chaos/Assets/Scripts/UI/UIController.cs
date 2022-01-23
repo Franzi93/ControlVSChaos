@@ -32,13 +32,13 @@ public class UIController : MonoBehaviour
 
     private void OpenMenu(GameObject menu)
     {
+        CloseCurrentMenu();
         menu.SetActive(true);
         currentMenu = menu;
     }
 
     public void OpenMainMenu()
     {
-        CloseCurrentMenu();
         
         mainMenu.SetupButtons();
 
@@ -47,14 +47,12 @@ public class UIController : MonoBehaviour
 
     public void OpenEndOfGameMenu()
     {
-        CloseCurrentMenu();
 
         OpenMenu(endOfGameMenu.gameObject);
     }
 
     public void OpenInGameMenu()
     {
-        CloseCurrentMenu();
 
         OpenMenu(inGameMenu.gameObject);
     }
