@@ -8,15 +8,19 @@ namespace Duality
     {
         public override void MoveTo(EDirection direction)
         {
+            GameCell oldCell = GetCurrentCell();
+
             if (MoveToDirection(direction))
             {
-                //GameCell newCell = GetCurrentCell();
-                //if (newCell.figure && newCell.figure.type == ECharacterType.Player)
-                //{
-                
-                //    //Kill player
-                //}
+                GameCell newCell = GetCurrentCell();
 
+                if (newCell.figure && newCell.figure.type == ECharacterType.Player)
+                {
+                    KilledFigure(newCell.figure);
+                }
+
+                oldCell.figure = null;
+                newCell.figure = this;
             }
            
         }

@@ -11,8 +11,14 @@ namespace Duality
         public Vector2Int goalPos;
         public Spawn[] spawns;
 
+        public GameObject goalPrefab;
+
         private List<MoveableFigure> spawnedObjects;
-        private bool playerReachedGoal;
+
+        public System.Action levelWon;
+        public System.Action levelLost;
+
+
 
         [System.Serializable]
         public class Spawn
@@ -31,9 +37,11 @@ namespace Duality
             }
         }
 
-        public void Setup()
+        public void Setup(System.Action won, System.Action lost)
         {
-            
+            levelLost = lost;
+            levelWon = won;
+
             spawnedObjects = new List<MoveableFigure>();
 
             gameGrid = CreateGameGrid();
@@ -45,7 +53,6 @@ namespace Duality
             // render grid here or in game controller?
             foreach (Spawn spawn in spawns)
             {
-                //get grid position
                 Vector3 pos = renderGrid.GetRenderPositionFromCellPosition(spawn.pos.x, spawn.pos.y);
                 MoveableFigure figure = Instantiate(spawn.obj, pos, Quaternion.identity, transform).GetComponent<MoveableFigure>();
                 spawnedObjects.Add(figure);
@@ -55,9 +62,18 @@ namespace Duality
                 figure.gameGrid = gameGrid;
                 figure.renderGrid = renderGrid;
                 figure.gridCoord = spawn.pos;
+
+                figure.SetCurrentCell();
+                figure.onFigureKilled += FigureKilled;
+                if (figure.type == ECharacterType.Player)
+                {
+                    (figure as PlayerFigure).reachedGoal = PlayerReachedGoal;
+                }
             }
+
+            Vector3 goalPosWorldPosition = renderGrid.GetRenderPositionFromCellPosition(goalPos.x, goalPos.y);
+            Instantiate(goalPrefab, goalPosWorldPosition, Quaternion.identity, transform);
             
-            //place goal
         }
 
         public List<EEnemyType> GetAllRemainEnemyTypes()
@@ -121,13 +137,16 @@ namespace Duality
 
         public void PlayerReachedGoal()
         {
-            playerReachedGoal = true;
+            //TODO
+            levelWon();
         }
 
         public void FigureKilled(MoveableFigure figure)
         {
             // TODO: Remove figure from list
             // TODO: Check what type the figure was
+
+            Destroy(figure.gameObject);
         }
 
         private GameGrid CreateGameGrid()

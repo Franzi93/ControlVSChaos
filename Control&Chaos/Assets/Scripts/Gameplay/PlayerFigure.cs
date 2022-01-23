@@ -6,20 +6,28 @@ namespace Duality
 {
     public class PlayerFigure : MoveableFigure
     {
+        public System.Action reachedGoal;
+
         public override void MoveTo(EDirection direction)
         {
+            GameCell oldCell = GetCurrentCell();
+
             if (MoveToDirection(direction))
             {
                 GameCell newCell = GetCurrentCell();
                
-                //if (newCell.figure && newCell.figure.type == ECharacterType.Enemy)
-                //{
-                //    //Kill figure
-                //}
-                //if (newCell.type == ECellType.Goal)
-                //{
-                //    //WIN
-                //}
+                if (newCell.figure && newCell.figure.type == ECharacterType.Enemy)
+                {
+                    //Kill figure
+                    KilledFigure(newCell.figure);
+                    Debug.Log("KILLLLL");
+                }
+                if (newCell.type == ECellType.Goal)
+                {
+                    reachedGoal();
+                }
+                oldCell.figure = null;
+                SetCurrentCell();
             }
          
         }

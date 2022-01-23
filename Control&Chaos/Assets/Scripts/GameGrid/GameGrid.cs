@@ -20,6 +20,13 @@ namespace Duality
             this.width = width;
             this.height = height;
             cells = new GameCell[width, height];
+            for (int i = 0; i < width; i++)
+            {
+                for (int j = 0; j < height; j++)
+                {
+                    cells[i, j] = new GameCell();
+                }
+            }
         }
 
         public void SetCell(int x, int y, GameCell cell)
