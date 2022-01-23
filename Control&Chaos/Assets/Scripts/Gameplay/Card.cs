@@ -38,6 +38,7 @@ namespace Duality
                 enemiesDone = 0;
                 foreach (MoveableFigure m in enemies)
                 {
+
                     if (!m.isAlive)
                     { continue; }
                     ++enemiesToDO;

@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 8328158728551021544}
   m_Layer: 0
   m_Name: Main Camera
-  m_TagString: MainCamera
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -975,6 +975,10 @@ PrefabInstance:
     - target: {fileID: 175574288420030141, guid: f07ab78c78ca0e44084802e35a2440ca, type: 3}
       propertyPath: m_Name
       value: Dust
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361453259805818779, guid: f07ab78c78ca0e44084802e35a2440ca, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 8894622724617374616, guid: f07ab78c78ca0e44084802e35a2440ca, type: 3}
       propertyPath: m_RootOrder

@@ -21,18 +21,29 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Grasses
-  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 60a67acce604cb340a3d0b2bcc8cd1e6, type: 3}
   m_ShaderKeywords: _METALLICSPECGLOSSMAP _NORMALMAP
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2000
-  stringTagMap:
-    RenderType: Opaque
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_59f2fbf6bac44a34a6ecc666b97cd3d8:
+        m_Texture: {fileID: 2800000, guid: 3c984be32192f344b87471dfb1389de8, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_5e7187ec30b148829838250e00835b60:
+        m_Texture: {fileID: 2800000, guid: 0a7462e5c840b7d4db95a2c02ab4fe01, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_d638537914e347888a051c5fbcb571c7:
+        m_Texture: {fileID: 2800000, guid: e7e728eee3867f545849bf8aa29d22a5, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BaseMap:
         m_Texture: {fileID: 2800000, guid: e7e728eee3867f545849bf8aa29d22a5, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -90,6 +101,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_12744ef1fe5a4fe4ada51379c94a6aa1: 0
+    - Vector1_f4ddfb7a66cc4520837eb4bd5358a225: 5
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -117,6 +130,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
+    - Vector2_b5a7c0ad56634eb98fc30708cf9eddd5: {r: 200, g: 50, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
