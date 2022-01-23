@@ -76,6 +76,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3086417213276687823, guid: 00011ad1aae77f0478bb457abc895fdb, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8ed4ebe6324d8d4439161aed4b3d0e89, type: 2}
     - target: {fileID: 4401351350591655897, guid: 00011ad1aae77f0478bb457abc895fdb, type: 3}
       propertyPath: m_Name
       value: Chess_Piece_Pawn_Player
@@ -155,6 +159,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   enemyType: 0
+  isAlive: 0
   gridCoord: {x: 0, y: 0}
   renderGrid: {fileID: 0}
   animator: {fileID: 6258905613972218546}
