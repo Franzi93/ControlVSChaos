@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 namespace Duality
 {
@@ -13,6 +14,8 @@ namespace Duality
 
         public GameGrid gameGrid;
         public RenderGrid renderGrid;
+
+        public Animator animator;
 
         public event System.Action<MoveableFigure> onFigureKilled;
      
@@ -27,12 +30,40 @@ namespace Duality
             bool moveValid = gameGrid.IsValidCellPosition(newCell.x,newCell.y);
             if (moveValid)
             {
-                transform.position = renderGrid.GetRenderPositionFromCellPosition(newCell.x, newCell.y);
+                UpdateAnimator(renderGrid.GetRenderPositionFromCellPosition(newCell.x, newCell.y));
+                transform.DOMove(renderGrid.GetRenderPositionFromCellPosition(newCell.x, newCell.y), 0.8f).SetEase(Ease.InOutQuad).OnComplete(ResetAnimator);
+                //transform.position = renderGrid.GetRenderPositionFromCellPosition(newCell.x, newCell.y);
 
                 gridCoord = newCell;
 
             }
             return moveValid;
+        }
+
+        private void UpdateAnimator(Vector3 newPos)
+        {
+            if (newPos.x > transform.position.x)
+            {
+                animator.SetFloat("Horizontal", 1f);
+            }
+            else if (newPos.x < transform.position.x)
+            {
+                animator.SetFloat("Horizontal", -1f);
+            }
+            else if (newPos.y > transform.position.y)
+            {
+                animator.SetFloat("Vertical", 1f);
+            }
+            else if (newPos.y < transform.position.y)
+            {
+                animator.SetFloat("Vertical", -1f);
+            }
+        }
+
+        private void ResetAnimator()
+        {
+            animator.SetFloat("Horizontal", 0f);
+            animator.SetFloat("Vertical", 0f);
         }
 
         public GameCell GetCurrentCell()
