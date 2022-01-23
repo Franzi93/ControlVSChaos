@@ -62,6 +62,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4401351350591655897, guid: 00011ad1aae77f0478bb457abc895fdb, type: 3}
   m_PrefabInstance: {fileID: 7766638724694191464}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &6258905613972218546 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4401351350591655898, guid: 00011ad1aae77f0478bb457abc895fdb, type: 3}
+  m_PrefabInstance: {fileID: 7766638724694191464}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6258905613286967687 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4401351350170658031, guid: 00011ad1aae77f0478bb457abc895fdb, type: 3}
@@ -80,9 +85,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 2
-  enemyType: 1
+  enemyType: 2
   gridCoord: {x: 0, y: 0}
   renderGrid: {fileID: 0}
+  animator: {fileID: 6258905613972218546}
 --- !u!1001 &8413808238215981309
 PrefabInstance:
   m_ObjectHideFlags: 0

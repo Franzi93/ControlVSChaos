@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 352df929f6f1f2c4380915453ba28d18, type: 3}
+  m_Name: DirectionAbilityDown
+  m_EditorClassIdentifier: Assembly-CSharp::DirectionAbility
+  playerSprite: {fileID: 21300000, guid: fb1bb439e420eb94bb47408acc3189fc, type: 3}
+  enemySprite: {fileID: 21300000, guid: e3733ddd4578dc249be9d1ee4bd207b9, type: 3}
+  direction: 1

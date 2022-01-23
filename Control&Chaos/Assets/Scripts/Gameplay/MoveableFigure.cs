@@ -18,9 +18,13 @@ namespace Duality
         public Animator animator;
 
         public event System.Action<MoveableFigure> onFigureKilled;
-        public System.Action onArrivedLocation;
+        public System.Action onDoneAbiliy;
 
         public virtual void MoveTo(EDirection direction, System.Action doneCallback)
+        {
+        }
+
+        public virtual void Attack( System.Action doneCallback)
         {
         }
 
@@ -93,7 +97,7 @@ namespace Duality
         {
             ResetAnimator();
             Debug.Log("ArrivedLocation");
-            onArrivedLocation();
+            onDoneAbiliy();
         }
 
 

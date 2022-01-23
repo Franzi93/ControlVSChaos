@@ -504,8 +504,14 @@ MonoBehaviour:
   playerAbilities:
   - {fileID: 11400000, guid: 2ceda1718f3bc6649b21f6aa181bd835, type: 2}
   - {fileID: 11400000, guid: f4b685f6107b0ca4b982d13d0fa9958c, type: 2}
+  - {fileID: 11400000, guid: e0f75c64f1bdde840a1d79918498b31a, type: 2}
+  - {fileID: 11400000, guid: 113c602d95786fd41be6e32f69dc14d7, type: 2}
   enemyAbilities:
   - {fileID: 11400000, guid: f4b685f6107b0ca4b982d13d0fa9958c, type: 2}
+  - {fileID: 11400000, guid: 2ceda1718f3bc6649b21f6aa181bd835, type: 2}
+  - {fileID: 11400000, guid: e0f75c64f1bdde840a1d79918498b31a, type: 2}
+  - {fileID: 11400000, guid: 113c602d95786fd41be6e32f69dc14d7, type: 2}
+  - {fileID: 11400000, guid: d4b4e2ca92a4c724592f570d0dfb9577, type: 2}
 --- !u!114 &1844100562 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4714227416727098212, guid: 99f36659405e6b74c8fc3e47fa31ceb7, type: 3}
@@ -589,6 +595,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4714227416275857080, guid: 99f36659405e6b74c8fc3e47fa31ceb7, type: 3}
+      propertyPath: enemySymbols.Array.data[0].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: be7ce8886cae5234a9e859e71905803b, type: 3}
+    - target: {fileID: 4714227416275857080, guid: 99f36659405e6b74c8fc3e47fa31ceb7, type: 3}
+      propertyPath: enemySymbols.Array.data[1].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d902e9ad70fd0be4d89e66e57aadd499, type: 3}
     - target: {fileID: 4714227416275857081, guid: 99f36659405e6b74c8fc3e47fa31ceb7, type: 3}
       propertyPath: m_ChildForceExpandWidth
       value: 0

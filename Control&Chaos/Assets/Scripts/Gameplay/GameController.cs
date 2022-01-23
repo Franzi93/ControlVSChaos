@@ -20,10 +20,9 @@ namespace Duality
         private void Start()
         {
             DebugController.instance.AddAction("Finish level", FinishedLevel);
+            DebugController.instance.AddAction("Reshuffel", ReshuffleHand);
             cardSystem.onPlayedCard += PlayedCard;
             cardSystem.handIsEmpty += ReshuffleHand;
-
-           
         }
 
         public void PlayedCard(Card card)
