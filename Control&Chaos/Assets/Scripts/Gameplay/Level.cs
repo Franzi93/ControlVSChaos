@@ -56,6 +56,10 @@ namespace Duality
             {
                 renderGrid.SetupWithNewSize(width, height);
             }
+            else
+            {
+                renderGrid.SetupFromExistingCells(width, height);
+            }
 
             // render grid here or in game controller?
             foreach (Spawn spawn in spawns)
@@ -103,7 +107,7 @@ namespace Duality
             List<EEnemyType> types = new List<EEnemyType>();
             foreach (MoveableFigure obj in spawnedObjects)
             {
-                if (types.Contains(obj.enemyType))
+                if (!types.Contains(obj.enemyType) && obj.enemyType != EEnemyType.None)
                 {
                     types.Add(obj.enemyType);
                 }
