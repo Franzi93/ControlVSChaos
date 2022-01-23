@@ -12,14 +12,14 @@ namespace Duality
             {
                 GameCell newCell = GetCurrentCell();
                
-                if (newCell.figure && newCell.figure.type == ECharacterType.Enemy)
-                {
-                    //Kill figure
-                }
-                if (newCell.type == ECellType.Goal)
-                {
-                    //WIN
-                }
+                //if (newCell.figure && newCell.figure.type == ECharacterType.Enemy)
+                //{
+                //    //Kill figure
+                //}
+                //if (newCell.type == ECellType.Goal)
+                //{
+                //    //WIN
+                //}
             }
          
         }

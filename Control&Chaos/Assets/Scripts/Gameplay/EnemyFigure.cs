@@ -10,12 +10,12 @@ namespace Duality
         {
             if (MoveToDirection(direction))
             {
-                GameCell newCell = GetCurrentCell();
-                if (newCell.figure && newCell.figure.type == ECharacterType.Player)
-                {
+                //GameCell newCell = GetCurrentCell();
+                //if (newCell.figure && newCell.figure.type == ECharacterType.Player)
+                //{
                 
-                    //Kill player
-                }
+                //    //Kill player
+                //}
 
             }
            
