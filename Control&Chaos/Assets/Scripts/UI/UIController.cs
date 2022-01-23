@@ -8,8 +8,8 @@ public class UIController : MonoBehaviour
 {
     [SerializeField] GameObject mainMenu;
     [SerializeField] GameObject inGameMenu;
+    [SerializeField] GameObject winMenu;
     [SerializeField] GameObject lostMenu;
-    [SerializeField] GameObject nextLevelMenu;
     [SerializeField] GameObject endOfGameMenu;
 
     private GameObject currentMenu;
@@ -61,8 +61,8 @@ public class UIController : MonoBehaviour
             case EUIState.Lost:
                 OpenMenu(lostMenu);
                 break;
-            case EUIState.NextLevel:
-                OpenMenu(nextLevelMenu);
+            case EUIState.Win:
+                OpenMenu(winMenu);
                 break;
             case EUIState.InGame:
                 OpenMenu(inGameMenu);

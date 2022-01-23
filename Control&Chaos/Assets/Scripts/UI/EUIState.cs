@@ -4,7 +4,7 @@
     {
         MainMenu,
         Lost,
-        NextLevel,
+        Win,
         InGame,
         EndOfGame,
     }
