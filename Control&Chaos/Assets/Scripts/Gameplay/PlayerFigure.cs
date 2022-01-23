@@ -20,7 +20,6 @@ namespace Duality
                 {
                     //Kill figure
                     KilledFigure(newCell.figure);
-                    Debug.Log("KILLLLL");
                 }
                 if (newCell.type == ECellType.Goal)
                 {

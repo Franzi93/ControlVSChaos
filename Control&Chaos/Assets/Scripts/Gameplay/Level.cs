@@ -144,6 +144,7 @@ namespace Duality
         public void PlayerReachedGoal()
         {
             //TODO
+            Debug.Log("PlayerReachedGoal");
             levelWon();
         }
 

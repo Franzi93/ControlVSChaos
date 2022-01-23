@@ -12,14 +12,6 @@ PrefabInstance:
       value: Level_1
       objectReference: {fileID: 0}
     - target: {fileID: 2410623545205882638, guid: ddd3b0f0b23194c4da2411646d62a799, type: 3}
-      propertyPath: width
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2410623545205882638, guid: ddd3b0f0b23194c4da2411646d62a799, type: 3}
-      propertyPath: height
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2410623545205882638, guid: ddd3b0f0b23194c4da2411646d62a799, type: 3}
       propertyPath: renderGrid
       value: 
       objectReference: {fileID: 3634205641148223114}

@@ -44,7 +44,11 @@ namespace Duality
 
         public void SetCurrentCell()
         {
-         //   GetCurrentCell().figure = this;
+            if (!gameGrid.IsValidCellPosition(gridCoord.x, gridCoord.y))
+            {
+                throw new System.Exception("SetCurrentCell not possible, cell not in grid "+gridCoord);
+            }
+            GetCurrentCell().figure = this;
         }
         public void KilledFigure(MoveableFigure figure)
         {
