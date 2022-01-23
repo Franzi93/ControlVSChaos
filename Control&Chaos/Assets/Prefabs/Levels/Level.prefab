@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   renderGrid: {fileID: 5991292264681362867}
+  LevelNumber: 1
+  generateRenderGridOnSetup: 0
   goalPos: {x: 8, y: 8}
   spawns:
   - pos: {x: 0, y: 0}
@@ -55,7 +57,9 @@ MonoBehaviour:
     obj: {fileID: 6258905613972218545, guid: ddc8078377914044da1e11c07abb4d66, type: 3}
     type: 2
     enemyType: 1
-  goalPrefab: {fileID: 3316029851389228352, guid: 6506b7a30281e89428f0bff8aedb1637, type: 3}
+  width: 20
+  height: 20
+  goalPrefab: {fileID: 3010194354901961899, guid: 3c1b134169849f84a93e87a7f10adf38, type: 3}
 --- !u!1001 &8261758242795741062
 PrefabInstance:
   m_ObjectHideFlags: 0

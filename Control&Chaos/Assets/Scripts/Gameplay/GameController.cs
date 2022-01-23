@@ -22,11 +22,15 @@ namespace Duality
             DebugController.instance.AddAction("Finish level", FinishedLevel);
             cardSystem.onPlayedCard += PlayedCard;
             cardSystem.handIsEmpty += ReshuffleHand;
+
+           
         }
 
         public void PlayedCard(Card card)
         {
+            InputSystem.Lock();
             currentLevel.ExecuteCard(card);
+            InputSystem.Unlock();
         }
 
 
