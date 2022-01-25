@@ -25,7 +25,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2410623545205882638, guid: ddd3b0f0b23194c4da2411646d62a799, type: 3}
       propertyPath: goalPos.y
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2410623545205882638, guid: ddd3b0f0b23194c4da2411646d62a799, type: 3}
       propertyPath: renderGrid
@@ -33,16 +33,16 @@ PrefabInstance:
       objectReference: {fileID: 121382185094902104}
     - target: {fileID: 2410623545205882638, guid: ddd3b0f0b23194c4da2411646d62a799, type: 3}
       propertyPath: spawns.Array.size
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2410623545205882638, guid: ddd3b0f0b23194c4da2411646d62a799, type: 3}
       propertyPath: spawns.Array.data[2].obj
       value: 
-      objectReference: {fileID: 6258905613972218545, guid: ddc8078377914044da1e11c07abb4d66, type: 3}
+      objectReference: {fileID: 6258905613972218545, guid: bc77f2a5e66ecc745bf1167dad0e34f3, type: 3}
     - target: {fileID: 2410623545205882638, guid: ddd3b0f0b23194c4da2411646d62a799, type: 3}
       propertyPath: spawns.Array.data[3].obj
       value: 
-      objectReference: {fileID: 6258905613972218545, guid: ddc8078377914044da1e11c07abb4d66, type: 3}
+      objectReference: {fileID: 6258905613972218545, guid: 6ca33f6d9931aaf46b5d0f06bea2b150, type: 3}
     - target: {fileID: 2410623545205882638, guid: ddd3b0f0b23194c4da2411646d62a799, type: 3}
       propertyPath: generateRenderGridOnSetup
       value: 0
@@ -57,11 +57,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2410623545205882638, guid: ddd3b0f0b23194c4da2411646d62a799, type: 3}
       propertyPath: spawns.Array.data[0].pos.x
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2410623545205882638, guid: ddd3b0f0b23194c4da2411646d62a799, type: 3}
       propertyPath: spawns.Array.data[0].pos.y
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2410623545205882638, guid: ddd3b0f0b23194c4da2411646d62a799, type: 3}
       propertyPath: spawns.Array.data[1].pos.x
@@ -73,27 +73,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2410623545205882638, guid: ddd3b0f0b23194c4da2411646d62a799, type: 3}
       propertyPath: spawns.Array.data[2].pos.x
-      value: 8
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2410623545205882638, guid: ddd3b0f0b23194c4da2411646d62a799, type: 3}
       propertyPath: spawns.Array.data[2].pos.y
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2410623545205882638, guid: ddd3b0f0b23194c4da2411646d62a799, type: 3}
       propertyPath: spawns.Array.data[3].pos.x
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2410623545205882638, guid: ddd3b0f0b23194c4da2411646d62a799, type: 3}
       propertyPath: spawns.Array.data[3].pos.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2410623545205882638, guid: ddd3b0f0b23194c4da2411646d62a799, type: 3}
       propertyPath: spawns.Array.data[2].enemyType
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2410623545205882638, guid: ddd3b0f0b23194c4da2411646d62a799, type: 3}
       propertyPath: spawns.Array.data[3].enemyType
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5991292264681362866, guid: ddd3b0f0b23194c4da2411646d62a799, type: 3}
       propertyPath: m_IsActive
@@ -157,6 +157,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8501479006081984809}
     m_Modifications:
+    - target: {fileID: 1170617984759312487, guid: dbba77965c7351c41ad637f6ff886648, type: 3}
+      propertyPath: m_Name
+      value: UpTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 2106975222162779404, guid: dbba77965c7351c41ad637f6ff886648, type: 3}
+      propertyPath: m_Name
+      value: Cell_Light_B(Clone)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2111739997867527817, guid: dbba77965c7351c41ad637f6ff886648, type: 3}
+      propertyPath: m_Name
+      value: Cell_Dark_A(Clone)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3264975945769669543, guid: dbba77965c7351c41ad637f6ff886648, type: 3}
+      propertyPath: m_Name
+      value: Cell_Light_B(Clone)
+      objectReference: {fileID: 0}
     - target: {fileID: 4898393467801609800, guid: dbba77965c7351c41ad637f6ff886648, type: 3}
       propertyPath: m_Name
       value: RenderGrid_6x6
@@ -296,19 +312,19 @@ PrefabInstance:
     - target: {fileID: 4898393467801609801, guid: dbba77965c7351c41ad637f6ff886648, type: 3}
       propertyPath: preExistingCells.Array.data[30]
       value: 
-      objectReference: {fileID: 6853285410885081496}
+      objectReference: {fileID: 1707645314837166508}
     - target: {fileID: 4898393467801609801, guid: dbba77965c7351c41ad637f6ff886648, type: 3}
       propertyPath: preExistingCells.Array.data[31]
       value: 
-      objectReference: {fileID: 6874973935763667485}
+      objectReference: {fileID: 6853285410885081496}
     - target: {fileID: 4898393467801609801, guid: dbba77965c7351c41ad637f6ff886648, type: 3}
       propertyPath: preExistingCells.Array.data[32]
       value: 
-      objectReference: {fileID: 388751073759374262}
+      objectReference: {fileID: 6874973935763667485}
     - target: {fileID: 4898393467801609801, guid: dbba77965c7351c41ad637f6ff886648, type: 3}
       propertyPath: preExistingCells.Array.data[33]
       value: 
-      objectReference: {fileID: 1707645314837166508}
+      objectReference: {fileID: 388751073759374262}
     - target: {fileID: 4898393467801609801, guid: dbba77965c7351c41ad637f6ff886648, type: 3}
       propertyPath: preExistingCells.Array.data[34]
       value: 
@@ -360,6 +376,14 @@ PrefabInstance:
     - target: {fileID: 4898393467801609802, guid: dbba77965c7351c41ad637f6ff886648, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5129799644506127527, guid: dbba77965c7351c41ad637f6ff886648, type: 3}
+      propertyPath: m_Name
+      value: NextTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 6190035846942846653, guid: dbba77965c7351c41ad637f6ff886648, type: 3}
+      propertyPath: m_Name
+      value: LastTile
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbba77965c7351c41ad637f6ff886648, type: 3}
@@ -514,6 +538,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2704789758782860840, guid: dbba77965c7351c41ad637f6ff886648, type: 3}
   m_PrefabInstance: {fileID: 4779914130860332817}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1707645314837166508 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6190035846942846653, guid: dbba77965c7351c41ad637f6ff886648, type: 3}
+  m_PrefabInstance: {fileID: 4779914130860332817}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6853285410885081496 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2111739997867527817, guid: dbba77965c7351c41ad637f6ff886648, type: 3}
@@ -527,11 +556,6 @@ GameObject:
 --- !u!1 &388751073759374262 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5129799644506127527, guid: dbba77965c7351c41ad637f6ff886648, type: 3}
-  m_PrefabInstance: {fileID: 4779914130860332817}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1707645314837166508 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6190035846942846653, guid: dbba77965c7351c41ad637f6ff886648, type: 3}
   m_PrefabInstance: {fileID: 4779914130860332817}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &5938968392371267446 stripped

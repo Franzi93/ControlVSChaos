@@ -1679,6 +1679,42 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4714227416275857080, guid: 99f36659405e6b74c8fc3e47fa31ceb7, type: 3}
+      propertyPath: enemySymbols.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4714227416275857080, guid: 99f36659405e6b74c8fc3e47fa31ceb7, type: 3}
+      propertyPath: enemySymbols.Array.data[2].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 26bc6a21f58cc7543879ab9223a7224c, type: 3}
+    - target: {fileID: 4714227416275857080, guid: 99f36659405e6b74c8fc3e47fa31ceb7, type: 3}
+      propertyPath: enemySymbols.Array.data[3].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6d948c59ab366114695b2938799d3b8b, type: 3}
+    - target: {fileID: 4714227416275857080, guid: 99f36659405e6b74c8fc3e47fa31ceb7, type: 3}
+      propertyPath: enemySymbols.Array.data[4].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0b109c07d1183fd4aa03d1a2911ced1d, type: 3}
+    - target: {fileID: 4714227416275857080, guid: 99f36659405e6b74c8fc3e47fa31ceb7, type: 3}
+      propertyPath: enemySymbols.Array.data[5].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 362529b032db57c4b878e7bd7d29a27b, type: 3}
+    - target: {fileID: 4714227416275857080, guid: 99f36659405e6b74c8fc3e47fa31ceb7, type: 3}
+      propertyPath: enemySymbols.Array.data[2].enemyType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4714227416275857080, guid: 99f36659405e6b74c8fc3e47fa31ceb7, type: 3}
+      propertyPath: enemySymbols.Array.data[3].enemyType
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4714227416275857080, guid: 99f36659405e6b74c8fc3e47fa31ceb7, type: 3}
+      propertyPath: enemySymbols.Array.data[4].enemyType
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4714227416275857080, guid: 99f36659405e6b74c8fc3e47fa31ceb7, type: 3}
+      propertyPath: enemySymbols.Array.data[5].enemyType
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4714227416727098208, guid: 99f36659405e6b74c8fc3e47fa31ceb7, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2102,7 +2138,7 @@ PrefabInstance:
     - target: {fileID: 1678225312, guid: e8c2dd37a77c358409ac61e968aa9dd7, type: 3}
       propertyPath: levelPrefabs.Array.data[0]
       value: 
-      objectReference: {fileID: 1038364236998127189, guid: c2f972c2043997845a0e3d8db8577b8f, type: 3}
+      objectReference: {fileID: 1038364236998127189, guid: 0bf9d71ddd2b7724c921562340756741, type: 3}
     - target: {fileID: 6785735914140356810, guid: e8c2dd37a77c358409ac61e968aa9dd7, type: 3}
       propertyPath: uiController
       value: 

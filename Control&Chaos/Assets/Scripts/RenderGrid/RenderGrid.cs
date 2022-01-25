@@ -20,7 +20,7 @@ namespace Duality
         public int Width => width;
         public int Height => height;
 
-        private readonly List<GameObject> cells = new List<GameObject>();
+        [SerializeField] private readonly List<GameObject> cells = new List<GameObject>();
 
         private Vector2Int deleteCoord;
 
@@ -164,6 +164,7 @@ namespace Duality
                     if (renderCell)
                     {
                         return renderCell.GetCharacterTransform().position;
+
                     }
                 }
             }

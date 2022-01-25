@@ -8,6 +8,10 @@ namespace Duality
     {
         None,
         Pawn,
-        King
+        King,
+        Knight,
+        Queen,
+        Bishop,
+        Tower
     }
 }
