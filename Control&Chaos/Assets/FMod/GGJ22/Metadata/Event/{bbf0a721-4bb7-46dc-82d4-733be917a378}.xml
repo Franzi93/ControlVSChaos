@@ -31,6 +31,9 @@
 		<relationship name="timeline">
 			<destination>{4a101056-1034-4a1e-9b8c-cdb1ec33dbb4}</destination>
 		</relationship>
+		<relationship name="parameters">
+			<destination>{bd2abe82-b722-448b-a034-fafa4cd9c4b4}</destination>
+		</relationship>
 		<relationship name="banks">
 			<destination>{c6491967-f476-4610-bd5f-d3b79b4d813c}</destination>
 		</relationship>
@@ -56,7 +59,11 @@
 			<destination>{1261bbc1-78bf-4d6b-9848-f445422d4491}</destination>
 		</relationship>
 	</object>
-	<object class="EventAutomatableProperties" id="{0c96886e-d55d-4748-9dfb-9a2cc3ae5b23}" />
+	<object class="EventAutomatableProperties" id="{0c96886e-d55d-4748-9dfb-9a2cc3ae5b23}">
+		<property name="isPersistent">
+			<value>true</value>
+		</property>
+	</object>
 	<object class="MarkerTrack" id="{c37c4457-4b35-4f93-bf3f-ad1252747f93}" />
 	<object class="GroupTrack" id="{000d962b-d3dc-4ab0-a4bc-39089a5029bb}">
 		<relationship name="modules">
@@ -69,6 +76,11 @@
 	<object class="Timeline" id="{4a101056-1034-4a1e-9b8c-cdb1ec33dbb4}">
 		<relationship name="modules">
 			<destination>{7bbe9aca-1336-4326-9ff5-98707c2b9015}</destination>
+		</relationship>
+	</object>
+	<object class="ParameterProxy" id="{bd2abe82-b722-448b-a034-fafa4cd9c4b4}">
+		<relationship name="preset">
+			<destination>{b5d2db8a-1e1d-4a55-be8d-d6723ec68174}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{e924a342-3667-40ff-a9e6-9c8dac461832}">
@@ -91,6 +103,9 @@
 	<object class="SingleSound" id="{7bbe9aca-1336-4326-9ff5-98707c2b9015}">
 		<property name="length">
 			<value>258.71673469387753</value>
+		</property>
+		<property name="looping">
+			<value>true</value>
 		</property>
 		<relationship name="audioFile">
 			<destination>{2e2992db-078a-402f-8d39-fdc661c3eb9d}</destination>
