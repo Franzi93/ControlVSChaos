@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 485814846153520585, guid: ddd3b0f0b23194c4da2411646d62a799, type: 3}
       propertyPath: m_Name
-      value: Level_voll
+      value: Level_2
       objectReference: {fileID: 0}
     - target: {fileID: 2410623545205882638, guid: ddd3b0f0b23194c4da2411646d62a799, type: 3}
       propertyPath: width
@@ -33,11 +33,11 @@ PrefabInstance:
       objectReference: {fileID: 3634205641148223114}
     - target: {fileID: 2410623545205882638, guid: ddd3b0f0b23194c4da2411646d62a799, type: 3}
       propertyPath: LevelNumber
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2410623545205882638, guid: ddd3b0f0b23194c4da2411646d62a799, type: 3}
       propertyPath: spawns.Array.size
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2410623545205882638, guid: ddd3b0f0b23194c4da2411646d62a799, type: 3}
       propertyPath: spawns.Array.data[2].obj
@@ -54,7 +54,7 @@ PrefabInstance:
     - target: {fileID: 2410623545205882638, guid: ddd3b0f0b23194c4da2411646d62a799, type: 3}
       propertyPath: spawns.Array.data[5].obj
       value: 
-      objectReference: {fileID: 6258905613972218545, guid: ddc8078377914044da1e11c07abb4d66, type: 3}
+      objectReference: {fileID: 6258905613972218545, guid: 5f8839a4a73f9b746b49b3aaac7bc728, type: 3}
     - target: {fileID: 2410623545205882638, guid: ddd3b0f0b23194c4da2411646d62a799, type: 3}
       propertyPath: generateRenderGridOnSetup
       value: 0
@@ -117,11 +117,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2410623545205882638, guid: ddd3b0f0b23194c4da2411646d62a799, type: 3}
       propertyPath: spawns.Array.data[5].pos.x
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2410623545205882638, guid: ddd3b0f0b23194c4da2411646d62a799, type: 3}
       propertyPath: spawns.Array.data[5].pos.y
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2410623545205882638, guid: ddd3b0f0b23194c4da2411646d62a799, type: 3}
       propertyPath: spawns.Array.data[2].enemyType
@@ -137,7 +137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2410623545205882638, guid: ddd3b0f0b23194c4da2411646d62a799, type: 3}
       propertyPath: spawns.Array.data[5].enemyType
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5991292264681362866, guid: ddd3b0f0b23194c4da2411646d62a799, type: 3}
       propertyPath: m_IsActive

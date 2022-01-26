@@ -177,7 +177,7 @@ namespace Duality
         {
             spawnedObjects.Remove(figure);
             figure.isAlive = false;
-
+            Instantiate(figure.deathVFX, figure.transform.position, Quaternion.identity, transform);
             Destroy(figure.gameObject);
         }
 

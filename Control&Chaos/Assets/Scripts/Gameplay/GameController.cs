@@ -47,7 +47,7 @@ namespace Duality
 
 
             currentLevel = Instantiate(levelPrefabs[currentLevelIndex], levelSpawnTransform.position, Quaternion.identity).GetComponent<Level>();
- //           currentLevel.transform.position = new Vector3(((levelPrefabs[currentLevelIndex].GetComponent<Level>().width/2) * 4) *-1,levelSpawnTransform.position.y, levelSpawnTransform.position.z);
+            currentLevel.transform.position = new Vector3(((levelPrefabs[currentLevelIndex].GetComponent<Level>().width/2) * 4) *-1,levelSpawnTransform.position.y, levelSpawnTransform.position.z);
             currentLevel.Setup(Won,Lost);
 
             cardSystem.currentLevel = currentLevel;

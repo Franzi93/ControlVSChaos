@@ -18,6 +18,7 @@ namespace Duality
         public RenderGrid renderGrid;
 
         public Animator animator;
+        public GameObject deathVFX;
 
         public event System.Action<MoveableFigure> onFigureKilled;
         public System.Action onDoneAbiliy;

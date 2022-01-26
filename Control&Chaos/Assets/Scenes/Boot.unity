@@ -2136,9 +2136,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: f4b685f6107b0ca4b982d13d0fa9958c, type: 2}
     - target: {fileID: 1678225312, guid: e8c2dd37a77c358409ac61e968aa9dd7, type: 3}
+      propertyPath: levelPrefabs.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678225312, guid: e8c2dd37a77c358409ac61e968aa9dd7, type: 3}
       propertyPath: levelPrefabs.Array.data[0]
       value: 
       objectReference: {fileID: 1038364236998127189, guid: 0bf9d71ddd2b7724c921562340756741, type: 3}
+    - target: {fileID: 1678225312, guid: e8c2dd37a77c358409ac61e968aa9dd7, type: 3}
+      propertyPath: levelPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 1038364236998127189, guid: 83d85ef90c85fd5419aff352130c4502, type: 3}
     - target: {fileID: 6785735914140356810, guid: e8c2dd37a77c358409ac61e968aa9dd7, type: 3}
       propertyPath: uiController
       value: 

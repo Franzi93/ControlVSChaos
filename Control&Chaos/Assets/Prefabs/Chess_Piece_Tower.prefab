@@ -90,6 +90,7 @@ MonoBehaviour:
   gridCoord: {x: 0, y: 0}
   renderGrid: {fileID: 0}
   animator: {fileID: 6258905613972218546}
+  deathVFX: {fileID: 1478277382353431456, guid: ab96e8500b548194f82dfbfe2434f413, type: 3}
 --- !u!1001 &8163325440553176847
 PrefabInstance:
   m_ObjectHideFlags: 0

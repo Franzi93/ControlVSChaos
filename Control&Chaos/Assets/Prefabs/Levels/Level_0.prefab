@@ -32,6 +32,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 121382185094902104}
     - target: {fileID: 2410623545205882638, guid: ddd3b0f0b23194c4da2411646d62a799, type: 3}
+      propertyPath: LevelNumber
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2410623545205882638, guid: ddd3b0f0b23194c4da2411646d62a799, type: 3}
       propertyPath: spawns.Array.size
       value: 4
       objectReference: {fileID: 0}
