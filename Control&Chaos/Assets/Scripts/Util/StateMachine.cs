@@ -25,6 +25,11 @@
             return this.state == state;
         }
 
+        public State GetCurrentState()
+        {
+            return state;
+        }
+
         public TState NewState<TState>() where TState : State, new()
         {
             TState newState = new TState

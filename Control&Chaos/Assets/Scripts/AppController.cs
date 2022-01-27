@@ -18,6 +18,7 @@ namespace Duality
 
         [SerializeField] UIController uiController;
         [SerializeField] GameController gameController;
+        [SerializeField] CameraController cameraController;
 
 
         private void CreateFSM()
@@ -50,11 +51,6 @@ namespace Duality
 #endif
         }
 
-        public void ExitGameMode()
-        {
-            FinishedGame();
-        }
-
 
         private void Awake()
         {
@@ -69,8 +65,7 @@ namespace Duality
 
             instance = this;
 
-
-            gameController.GameFinishedEvent += FinishedGame;
+            
         }
 
         #region fsm
@@ -83,6 +78,7 @@ namespace Duality
 
                 Log.Message("Entering game...");
 
+                owner.cameraController.SwitchCameraPerspective(CameraController.CameraPerspective.INGAME);
                 owner.gameController.StartGame();
             }
         }
@@ -92,14 +88,17 @@ namespace Duality
             public override void OnEnter()
             {
                 base.OnEnter();
-                owner.uiController.OpenMainMenu();
+                owner.cameraController.SwitchCameraPerspective(CameraController.CameraPerspective.MENU);
+                owner.uiController.OpenMenu(EUIState.MainMenu);
             }
         }
 
-        private void FinishedGame()
+        public void StopGame()
         {
             if (fsm.IsInState(inGameState))
             {
+                gameController.StopGame();
+
                 fsm.SetState(mainMenuState);
             }
         }

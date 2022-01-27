@@ -3,6 +3,8 @@ using Dmdrn.UnityDebug;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Dmdrn;
+
 namespace Duality
 {
     public class GameController : MonoBehaviour
@@ -15,16 +17,126 @@ namespace Duality
         private int currentLevelIndex;
         private Level currentLevel;
 
-        public event System.Action GameFinishedEvent;
+        private StateMachine<GameController> fsm;
+        private LevelWon levelWon;
+        private LevelLost levelLost;
+        private Idle idle;
+        private GameWon gameWon;
+        private InGameState inGameState;
 
+        #region fsm
+
+        public GameState GetGameState()
+        {
+            return (fsm.GetCurrentState() as GameState);
+        }
+
+        public class GameState : StateMachine<GameController>.State
+        {
+            public virtual void Won() { }
+            public virtual void Lost() { }
+        }
+
+        public class Idle : GameState
+        {
+            public override void OnEnter()
+            {
+                base.OnEnter();
+
+                owner.Cleanup();
+            }
+        }
+
+        public class InGameState : GameState
+        {
+            public override void OnEnter()
+            {
+                base.OnEnter();
+
+                owner.StartLevel(owner.currentLevelIndex);
+                owner.uiController.OpenMenu(EUIState.InGame);
+            }
+            public override void Won()
+            {
+                Debug.Log("Game Won");
+
+                if ((owner.levelPrefabs.Length - 1) < (owner.currentLevelIndex + 1))
+                {
+                    owner.fsm.SetState(owner.gameWon);
+                }
+                else
+                {
+                    owner.fsm.SetState(owner.levelWon);
+                }
+
+
+            }
+
+            public override void Lost()
+            {
+                Debug.Log("Game Lost");
+
+                owner.fsm.SetState(owner.levelLost);
+            }
+
+        }
+
+        public class LevelWon : GameState
+        {
+            public override void OnEnter()
+            {
+                base.OnEnter();
+
+                owner.Cleanup();
+                owner.uiController.OpenMenu(EUIState.Win);
+
+            }
+        }
+
+        public class LevelLost : GameState
+        {
+            public override void OnEnter()
+            {
+                base.OnEnter();
+
+                owner.Cleanup();
+                owner.uiController.OpenMenu(EUIState.Lost);
+            }
+        }
+
+        public class GameWon : GameState
+        {
+            public override void OnEnter()
+            {
+                base.OnEnter();
+
+                owner.uiController.OpenMenu(EUIState.EndOfGame);
+            }
+        }
+
+        private void SetupFSM()
+        {
+            fsm = new StateMachine<GameController>(this);
+            inGameState = fsm.NewState<InGameState>();
+            levelLost = fsm.NewState<LevelLost>();
+            levelWon = fsm.NewState<LevelWon>();
+            idle = fsm.NewState<Idle>();
+            gameWon = fsm.NewState<GameWon>();
+            fsm.SetState(idle);
+            
+        }
+
+        #endregion
 
         private void Start()
         {
-            DebugController.instance.AddAction("Won level", Won);
-            DebugController.instance.AddAction("Lost level", Lost);
-            DebugController.instance.AddAction("Reshuffel", ReshuffleHand);
+            SetupFSM();
+
             cardSystem.onPlayedCard += PlayedCard;
-            cardSystem.handIsEmpty += ReshuffleHand;
+
+            DebugController.instance.AddAction("Won level", GetGameState().Won);
+            DebugController.instance.AddAction("Lost level", GetGameState().Lost);
+            DebugController.instance.AddAction("Reshuffel", cardSystem.ReshuffleHand);
         }
 
         public void PlayedCard(Card card)
@@ -35,85 +147,65 @@ namespace Duality
 
         public void StartGame()
         {
-            StartLevel(0);
-
-            uiController.OpenInGameMenu();
+            currentLevelIndex = 0;
+            fsm.SetState(inGameState);
         }
 
 
         private void StartLevel(int index)
         {
-            currentLevelIndex = index;
+            if (index > levelPrefabs.Length - 1)
+            {
+                Debug.LogError("Level index is higher than amount");
+            }
 
-
-            currentLevel = Instantiate(levelPrefabs[currentLevelIndex], levelSpawnTransform.position, Quaternion.identity).GetComponent<Level>();
-            currentLevel.transform.position = new Vector3(((levelPrefabs[currentLevelIndex].GetComponent<Level>().width/2) * 4) *-1,levelSpawnTransform.position.y, levelSpawnTransform.position.z);
-            currentLevel.Setup(Won,Lost);
+            currentLevel = Instantiate(levelPrefabs[index], levelSpawnTransform.position, Quaternion.identity).GetComponent<Level>();
+            currentLevel.transform.position = new Vector3(((levelPrefabs[index].GetComponent<Level>().width/2) * 4) *-1,levelSpawnTransform.position.y, levelSpawnTransform.position.z);
+            currentLevel.Setup(inGameState.Won, inGameState.Lost);
 
             cardSystem.currentLevel = currentLevel;
 
             cardSystem.ReshuffleHand();
         }
-
-        private void ReshuffleHand()
+        
+        public void NextLevel()
         {
-            cardSystem.ReshuffleHand();
+            currentLevelIndex++;
+            fsm.SetState(inGameState);
+        }
+
+        public void StopGame()
+        {
+            fsm.SetState(idle);
         }
 
 
-
-        public void Cleanup()
+        private void Cleanup()
         {
             InputSystem.Free();
 
-            currentLevel.Cleanup();
-            Destroy(currentLevel.gameObject);
+            if (currentLevel)
+            {
+                currentLevel.Cleanup();
+                Destroy(currentLevel.gameObject);
+            }
             cardSystem.RemoveAllCards();
             cardSystem.StopAllCoroutines();
         }
 
-        public void Won()
-        {
-            Debug.Log("Game Won");
-            Cleanup();
-
-            if ((levelPrefabs.Length - 1) < (currentLevelIndex + 1))
-            {
-                uiController.OpenMenu(EUIState.EndOfGame);
-                //GameFinishedEvent();
-            }
-            else
-            {
-                uiController.OpenMenu(EUIState.Win);
-                //StartLevel(currentLevelIndex + 1);
-            }
-            
-            
-        }
-
-        public void Lost()
-        {
-            Debug.Log("Game Lost");
-            Cleanup();
-
-            uiController.OpenMenu(EUIState.Lost);
-        }
-
-        public void NextLevel()
-        {
-            uiController.OpenMenu(EUIState.InGame);
-        }
-
         private void Update()
         {
+#if UNITY_EDITOR
             if (Input.GetKeyDown(KeyCode.O))
             {
-                Won();
+                GetGameState().Won();
             }
             else if (Input.GetKeyDown(KeyCode.P))
             {
-                Lost();
+                GetGameState().Lost();
             }
+#endif
         }
+
     }
 }

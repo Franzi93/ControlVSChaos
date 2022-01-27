@@ -86,7 +86,6 @@ namespace Duality
         {
             GameCell cell = gameGrid.GetCell(gridCoord);
             return cell;
-
         }
 
         public void SetCurrentCell()

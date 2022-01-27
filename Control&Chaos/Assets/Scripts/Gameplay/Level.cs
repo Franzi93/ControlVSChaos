@@ -80,6 +80,10 @@ namespace Duality
             }
 
             Vector3 goalPosWorldPosition = renderGrid.GetRenderPositionFromCellPosition(goalPos.x, goalPos.y);
+            if (!gameGrid.IsValidCellPosition(goalPos.x, goalPos.y))
+            {
+                throw new Exception("The goal position is not on the grid");
+            }
             gameGrid.GetCell(goalPos.x, goalPos.y).type = ECellType.Goal;
             Instantiate(goalPrefab, goalPosWorldPosition, Quaternion.identity, transform);
 

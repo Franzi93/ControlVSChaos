@@ -19,7 +19,6 @@ namespace Duality
 
 
         public event System.Action<Card> onPlayedCard;
-        public event System.Action handIsEmpty;
 
         private Ability GetRandomAbility(List<Ability> abilities)
         {
@@ -98,11 +97,7 @@ namespace Duality
                 
                 RemoveCard(card);
                 CreateCard(card.GetControlAbility());
-                if (cards.Count == 0)
-                {
-                  //  handIsEmpty();
-                }
-                //ReshuffleHand();
+                
             }));
         }
 

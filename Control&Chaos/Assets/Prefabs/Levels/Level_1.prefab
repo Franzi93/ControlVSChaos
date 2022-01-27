@@ -25,7 +25,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2410623545205882638, guid: ddd3b0f0b23194c4da2411646d62a799, type: 3}
       propertyPath: goalPos.y
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2410623545205882638, guid: ddd3b0f0b23194c4da2411646d62a799, type: 3}
       propertyPath: renderGrid

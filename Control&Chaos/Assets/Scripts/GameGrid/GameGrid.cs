@@ -66,6 +66,8 @@ namespace Duality
                 return cells[x, y];
             }
 
+            Debug.LogWarning("The cell you try to get is invalid. x:" + x + " y:" + y);
+
             return null;
         }
 
@@ -167,7 +169,7 @@ namespace Duality
             return (new Vector2Int(x, y) + dirV* steps);
         }
 
-public bool IsValidCellPosition(int x, int y)
+    public bool IsValidCellPosition(int x, int y)
         {
             return 0 <= x && x < width && 0 <= y && y < height;
         }
