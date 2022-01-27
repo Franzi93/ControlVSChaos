@@ -2232,7 +2232,7 @@ PrefabInstance:
     - target: {fileID: 1678225312, guid: e8c2dd37a77c358409ac61e968aa9dd7, type: 3}
       propertyPath: levelPrefabs.Array.data[0]
       value: 
-      objectReference: {fileID: 1038364236998127189, guid: 0bf9d71ddd2b7724c921562340756741, type: 3}
+      objectReference: {fileID: 1038364236998127189, guid: 647185c2be1e3214aaefe4bc30c44b8f, type: 3}
     - target: {fileID: 1678225312, guid: e8c2dd37a77c358409ac61e968aa9dd7, type: 3}
       propertyPath: levelPrefabs.Array.data[1]
       value: 

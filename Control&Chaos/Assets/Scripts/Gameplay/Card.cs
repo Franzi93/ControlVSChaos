@@ -35,20 +35,23 @@ namespace Duality
         public void Execute(MoveableFigure player, List<MoveableFigure> enemies, System.Action doneCallback)
         {
             controlAbility.Use(player,()=> {
-                
-                ExecuteEnemy(enemies, 0, doneCallback);
+
+                //done when no enemies are there to control
+                if (enemies.Count == 0)
+                {
+                    doneCallback?.Invoke();
+                }
+                else
+                {
+                    ExecuteEnemy(enemies, 0, doneCallback);
+                }
             });
         }
 
+        //COROUTINE
+
         private void ExecuteEnemy(List<MoveableFigure> enemies, int index, System.Action doneCallback)
         {
-            //done when no enemies are there to control
-            if (enemies.Count == 0)
-            {
-                doneCallback?.Invoke();
-                return;
-            }
-
             //check if current enemy is alive
             if (!enemies[index].isAlive)
             {

@@ -21,7 +21,7 @@ namespace Duality
         public GameObject deathVFX;
 
         public event System.Action<MoveableFigure> onFigureKilled;
-        public System.Action onDoneAbiliy;
+        public System.Action onDoneAbility;
 
         private void Start()
         {
@@ -95,7 +95,7 @@ namespace Duality
         {
             ResetAnimator();
             Debug.Log("ArrivedLocation");
-            onDoneAbiliy();
+            onDoneAbility();
         }
 
         protected IEnumerator WaitForSeconds(float seconds, System.Action callback)

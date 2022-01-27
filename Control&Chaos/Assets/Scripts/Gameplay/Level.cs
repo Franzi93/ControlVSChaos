@@ -18,7 +18,7 @@ namespace Duality
         public int height = 20;
 
         public GameObject goalPrefab;
-
+        
         private List<MoveableFigure> spawnedObjects;
 
         public System.Action levelWon;
@@ -162,7 +162,7 @@ namespace Duality
         {
             // LOOSE: Player is dead
             // WIN: Reached goal or all enemies dead
-
+            Debug.Log("check win loose");
             if (GetPlayer() == null || !GetPlayer().isAlive)
             {
                 levelLost();
