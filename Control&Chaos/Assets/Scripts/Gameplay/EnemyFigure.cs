@@ -10,17 +10,36 @@ namespace Duality
         {
             GameCell oldCell = GetCurrentCell();
             onDoneAbiliy = doneCallback;
-            if (MoveToDirection(direction))
+
+            Vector2Int newCellPos = gameGrid.GetCoordsInDirection(gridCoord.x, gridCoord.y, direction, 1);
+            bool cellValid = gameGrid.IsValidCellPosition(newCellPos.x, newCellPos.y);
+
+
+            if (cellValid)
             {
-                GameCell newCell = GetCurrentCell();
+                GameCell newCell = gameGrid.GetCell(newCellPos);
 
-                if (newCell.figure && newCell.figure.type == ECharacterType.Player)
+                if (newCell.Contains(ECharacterType.Enemy))
                 {
-                    KilledFigure(newCell.figure);
+                    onDoneAbiliy();
+                    return;
                 }
+                MoveToPosition(newCellPos,()=> {
 
-                oldCell.figure = null;
-                newCell.figure = this;
+                    ArrivedLocation();
+                    if (newCell.Contains(ECharacterType.Player))
+                    {
+                        KilledFigure(newCell.figure);
+                    }
+
+                    oldCell.figure = null;
+                    SetCurrentCell();
+                });
+
+            }
+            else
+            {
+                onDoneAbiliy();
             }
            
         }
@@ -31,13 +50,15 @@ namespace Duality
             animator.SetTrigger("Attack");
             foreach (GameCell cell in gameGrid.GetAllSurroundingCells(gridCoord.x, gridCoord.y))
             {
-                if (cell.figure && cell.figure.type == ECharacterType.Player)
+                if (cell.Contains(ECharacterType.Player))
                 {
                     KilledFigure(cell.figure);
                 }
             }
-            onDoneAbiliy();
+            StartCoroutine(WaitForSeconds(1f, onDoneAbiliy));
         }
+
+
 
     }
 }

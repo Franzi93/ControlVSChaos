@@ -180,9 +180,10 @@ namespace Duality
         public void FigureKilled(MoveableFigure figure)
         {
             spawnedObjects.Remove(figure);
-            figure.isAlive = false;
+
+            figure.Die();
+
             Instantiate(figure.deathVFX, figure.transform.position, Quaternion.identity, transform);
-            Destroy(figure.gameObject);
         }
 
         private GameGrid CreateGameGrid()

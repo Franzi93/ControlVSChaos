@@ -12,21 +12,35 @@ namespace Duality
         {
             GameCell oldCell = GetCurrentCell();
             onDoneAbiliy = doneCallback;
-            if (MoveToDirection(direction))
+
+            Vector2Int newCellPos = gameGrid.GetCoordsInDirection(gridCoord.x, gridCoord.y, direction, 1);
+            bool cellValid = gameGrid.IsValidCellPosition(newCellPos.x,newCellPos.y);
+
+            if (cellValid)
             {
-                GameCell newCell = GetCurrentCell();
-               
-                if (newCell.figure && newCell.figure.type == ECharacterType.Enemy)
-                {
-                    //Kill figure
-                    KilledFigure(newCell.figure);
-                }
-                if (newCell.type == ECellType.Goal)
-                {
-                    reachedGoal = true;
-                }
-                oldCell.figure = null;
-                SetCurrentCell();
+
+                MoveToPosition(newCellPos,()=> {
+                    ArrivedLocation();
+
+                    GameCell newCell = gameGrid.GetCell(newCellPos);
+                    if (newCell.Contains(ECharacterType.Enemy))
+                    {
+                        //Kill figure
+                        KilledFigure(newCell.figure);
+                    }
+
+                    if (newCell.type == ECellType.Goal)
+                    {
+                        reachedGoal = true;
+                    }
+                    oldCell.figure = null;
+                    SetCurrentCell();
+                });
+
+            }
+            else
+            {
+                onDoneAbiliy();
             }
          
         }
@@ -42,7 +56,7 @@ namespace Duality
                     KilledFigure(cell.figure);
                 }
             }
-            onDoneAbiliy();
+            StartCoroutine(WaitForSeconds(1f,onDoneAbiliy));
         }
     }
 }

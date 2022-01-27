@@ -36,24 +36,15 @@ namespace Duality
         {
         }
 
-        protected bool MoveToDirection(EDirection direction)
+        protected void MoveToPosition(Vector2Int newCell, System.Action callback)
         {
-            Vector2Int newCell = gameGrid.GetCoordsInDirection(gridCoord.x, gridCoord.y, direction, 1);
-            bool moveValid = gameGrid.IsValidCellPosition(newCell.x,newCell.y);
-            if (moveValid)
-            {
-                UpdateAnimator(renderGrid.GetRenderPositionFromCellPosition(newCell.x, newCell.y));
-                transform.DOMove(renderGrid.GetRenderPositionFromCellPosition(newCell.x, newCell.y), 0.8f).SetEase(Ease.InOutQuad).OnComplete(ArrivedLocation);
-                //transform.position = renderGrid.GetRenderPositionFromCellPosition(newCell.x, newCell.y);
+            UpdateAnimator(renderGrid.GetRenderPositionFromCellPosition(newCell.x, newCell.y));
+            transform.DOMove(renderGrid.GetRenderPositionFromCellPosition(newCell.x, newCell.y), 0.8f).SetEase(Ease.InOutQuad).OnComplete(()=>callback());
 
-                gridCoord = newCell;
-            }
-            else
-            {
-                ArrivedLocation();
-            }
-            return moveValid;
+            gridCoord = newCell;
         }
+
+        
 
         private void UpdateAnimator(Vector3 newPos)
         {
@@ -107,6 +98,18 @@ namespace Duality
             onDoneAbiliy();
         }
 
+        protected IEnumerator WaitForSeconds(float seconds, System.Action callback)
+        {
+            yield return new WaitForSeconds(seconds);
+            callback();
+        }
 
+        public void Die()
+        {
+            GetCurrentCell().figure = null;
+            isAlive = false;
+            gameObject.SetActive(false);
+
+        }
     }
 }

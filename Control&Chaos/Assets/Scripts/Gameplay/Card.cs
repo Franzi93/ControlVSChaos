@@ -35,36 +35,46 @@ namespace Duality
         public void Execute(MoveableFigure player, List<MoveableFigure> enemies, System.Action doneCallback)
         {
             controlAbility.Use(player,()=> {
-                enemiesDone = 0;
-                foreach (MoveableFigure m in enemies)
-                {
-
-                    if (!m.isAlive)
-                    { continue; }
-
-                    ++enemiesToDO;
-                    chaosAbility.Use(m,()=> {
-                        ++enemiesDone;
-                        if (enemiesDone == enemiesToDO)
-                        {
-                            doneCallback?.Invoke();
-                        }
-                    });
-                }
+                
+                ExecuteEnemy(enemies, 0, doneCallback);
             });
-
         }
 
-        private int enemiesDone;
-        private int enemiesToDO;
-        public void CheckEnemyDone(int enemyAmount, System.Action doneCallback)
+        private void ExecuteEnemy(List<MoveableFigure> enemies, int index, System.Action doneCallback)
         {
-            if (enemiesDone == enemyAmount)
+            //done when no enemies are there to control
+            if (enemies.Count == 0)
             {
-             doneCallback?.Invoke();
+                doneCallback?.Invoke();
+                return;
             }
+
+            //check if current enemy is alive
+            if (!enemies[index].isAlive)
+            {
+                if (enemies.Count == index + 1)
+                {
+                    doneCallback?.Invoke();
+                }
+                else
+                {
+                    ExecuteEnemy(enemies, (index + 1), doneCallback);
+                }
+                return;
+            }
+
+            //use ability on enemy
+            chaosAbility.Use(enemies[index], () => {
+                if (enemies.Count == index + 1)
+                {
+                    doneCallback?.Invoke();
+                }
+                else
+                {
+                    ExecuteEnemy(enemies, (index+1), doneCallback);
+                }
+            
+            });
         }
-
-
     }
 }
