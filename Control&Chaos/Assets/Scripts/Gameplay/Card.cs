@@ -10,6 +10,63 @@ namespace Duality
         private Ability chaosAbility;
         private EEnemyType enemyType;
 
+        #region queue
+       
+
+        private delegate IEnumerator AbilityRoutine(AbilityCommand command);
+        private class AbilityCommand
+        {
+            public Ability ability;
+            public MoveableFigure figure;
+            public AbilityRoutine abilityRoutine;
+        }
+       
+        private Queue<AbilityCommand> abilityQueue = new Queue<AbilityCommand>();
+        private Coroutine currentAbilityRoutine;
+        
+
+        private void Enqueue(AbilityCommand command)
+        {
+            abilityQueue.Enqueue(command);
+        }
+        private void StartAbilityQueue(System.Action doneCallback)
+        {
+            if (currentAbilityRoutine != null)
+            {
+                throw new System.Exception("Ability routine is already running bro");
+            }
+            currentAbilityRoutine = AppController.instance.StartCoroutine(AbilityQueueRoutine(doneCallback));
+        }
+
+        private IEnumerator AbilityQueueRoutine(System.Action doneCallback)
+        {
+            while (abilityQueue.Count>0)
+            {
+                AbilityCommand command = abilityQueue.Dequeue();
+                AbilityRoutine abilityRoutine = command.abilityRoutine;
+                IEnumerator e = abilityRoutine(command);
+                while (e.MoveNext())
+                {
+                    yield return null;
+                }
+            }
+            doneCallback?.Invoke();
+        }
+        private IEnumerator UseAbilityRoutine(AbilityCommand command)
+        {
+            bool isDone = false;
+            if (command.figure.isAlive)
+            {
+                command.ability.Use(command.figure, () => { isDone = true; });
+                while (!isDone)
+                {
+                    yield return null;
+                }
+            }
+
+        }
+        #endregion
+
         public Card(Ability _controlAbility, Ability _chaosAbility, EEnemyType _enemyType)
         {
             controlAbility = _controlAbility;
@@ -34,50 +91,21 @@ namespace Duality
 
         public void Execute(MoveableFigure player, List<MoveableFigure> enemies, System.Action doneCallback)
         {
-            controlAbility.Use(player,()=> {
+            AbilityCommand command = new AbilityCommand();
+            command.ability = controlAbility;
+            command.figure = player;
+            command.abilityRoutine = UseAbilityRoutine;
+            Enqueue(command);
 
-                //done when no enemies are there to control
-                if (enemies.Count == 0)
-                {
-                    doneCallback?.Invoke();
-                }
-                else
-                {
-                    ExecuteEnemy(enemies, 0, doneCallback);
-                }
-            });
-        }
-
-        //COROUTINE
-
-        private void ExecuteEnemy(List<MoveableFigure> enemies, int index, System.Action doneCallback)
-        {
-            //check if current enemy is alive
-            if (!enemies[index].isAlive)
+            foreach (MoveableFigure m in enemies)
             {
-                if (enemies.Count == index + 1)
-                {
-                    doneCallback?.Invoke();
-                }
-                else
-                {
-                    ExecuteEnemy(enemies, (index + 1), doneCallback);
-                }
-                return;
+                command = new AbilityCommand();
+                command.ability = chaosAbility;
+                command.figure = m;
+                command.abilityRoutine = UseAbilityRoutine;
+                Enqueue(command);
             }
-
-            //use ability on enemy
-            chaosAbility.Use(enemies[index], () => {
-                if (enemies.Count == index + 1)
-                {
-                    doneCallback?.Invoke();
-                }
-                else
-                {
-                    ExecuteEnemy(enemies, (index+1), doneCallback);
-                }
-            
-            });
+            StartAbilityQueue(doneCallback);
         }
     }
 }
