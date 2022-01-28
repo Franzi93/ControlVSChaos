@@ -190,5 +190,41 @@ namespace Duality
         {
             return new GameGrid(width, height);
         }
+
+
+#if UNITY_EDITOR
+        void OnDrawGizmos()
+        {
+
+            if (generateRenderGridOnSetup)
+            {
+                renderGrid.SetupWithNewSize(width, height);
+            }
+            else
+            {
+                renderGrid.SetupFromExistingCells(width, height);
+            }
+            Vector3 goalPosWorldPosition = renderGrid.GetRenderPositionFromCellPosition(goalPos.x, goalPos.y);
+
+            // Draw a yellow sphere at the transform's position
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawSphere(goalPosWorldPosition, 1);
+
+            foreach (Spawn spawn in spawns)
+            {
+                if (spawn.type.Equals(ECharacterType.Player))
+                {
+                    Gizmos.color = Color.blue;
+                }
+                else
+                {
+                    Gizmos.color = Color.red;
+                }
+                Vector3 pos = renderGrid.GetRenderPositionFromCellPosition(spawn.pos.x, spawn.pos.y);
+                UnityEditor.Handles.Label(pos, spawn.obj.name);
+                Gizmos.DrawSphere(pos, 1);
+            }
+        }
+#endif
     }
 }
