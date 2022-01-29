@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{06a738ba-439e-4529-b3ca-2793839337a5}">
+		<property name="assetPath">
+			<value>470892__thingy17__llama-encendiendo-001.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.78975056689342404</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{3e09a179-5191-473f-ac26-b2f9078b1ccd}</destination>
+		</relationship>
+	</object>
+</objects>

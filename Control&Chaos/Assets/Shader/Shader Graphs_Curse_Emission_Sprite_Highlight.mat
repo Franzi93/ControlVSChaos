@@ -7,20 +7,20 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_Curse_Emission_Flash_Sprite
+  m_Name: Shader Graphs_Curse_Emission_Sprite_Highlight
   m_Shader: {fileID: -6465566751694194690, guid: a7f1361b98758c3459bad7fd19af61b9, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 5000
+  m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
     - Texture2D_7c730a329995450abed112e323c6bea3:
-        m_Texture: {fileID: 10307, guid: 0000000000000000f000000000000000, type: 0}
+        m_Texture: {fileID: 2800000, guid: 4b1e7fafa77bd6648bb00b3244961272, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_f01485ab31e54c7ea60539f2d666c137:
@@ -43,11 +43,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - Boolean_8b4c1a48a9154238983dc9089b64bf55: 1
+    m_Floats: []
     m_Colors:
-    - Color_d04daeaf6d3c4f40bc9d6347871e6563: {r: 6.0461154, g: 6.0461154, b: 6.0461154, a: 1}
+    - Color_d04daeaf6d3c4f40bc9d6347871e6563: {r: 0.6717374, g: 1.2374469, b: 2.670157, a: 1}
     - Color_d04daeaf6d3c4f40bc9d6347871e6563_1: {r: 0, g: 0, b: 0, a: 0}
-    - Vector2_41c40f94b9f1409fa3f8ee2c31f20404: {r: -2, g: 4, b: 0, a: 0}
-    - Vector2_f679a52ef67546b789aa69b30ecb7f8d: {r: 0.1, g: 0.3, b: 0, a: 0}
+    - Vector2_41c40f94b9f1409fa3f8ee2c31f20404: {r: -3, g: 3, b: 0, a: 0}
+    - Vector2_f679a52ef67546b789aa69b30ecb7f8d: {r: -0.1, g: -0.3, b: 0, a: 0}
   m_BuildTextureStacks: []

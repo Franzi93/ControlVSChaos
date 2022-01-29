@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{56e38485-2afc-4441-8d65-5d1ff626252f}">
+		<property name="assetPath">
+			<value>348221__tbrook__switch-light-02 (1).wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.46691666666666665</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{3e09a179-5191-473f-ac26-b2f9078b1ccd}</destination>
+		</relationship>
+	</object>
+</objects>
